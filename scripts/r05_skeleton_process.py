@@ -44,10 +44,10 @@ class MyOVBox(OVBox):
         # contador de processamentos
         self.nProc               = 0
        
-        with open('C:\\Users\\Laboratorio\\Desktop\\best_c_mean.pkl', 'rb') as f: 
+        with open('C:\\Users\\Laboratorio\\Documents\\GitHub\\real-time-bmi\\best_c_mean.pkl', 'rb') as f: 
             self.best_c_mean = pickle.load(f)
         
-        with open('C:\\Users\\Laboratorio\\Desktop\\lda.pkl', 'rb') as f: 
+        with open('C:\\Users\\Laboratorio\\Documents\\GitHub\\real-time-bmi\\lda.pkl', 'rb') as f: 
             self.lda = pickle.load(f)
 
     def initialize(self):
