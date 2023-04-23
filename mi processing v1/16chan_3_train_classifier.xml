@@ -106,7 +106,7 @@
 					<TypeIdentifier>(0x330306dd, 0x74a95f98)</TypeIdentifier>
 					<Name>Filename</Name>
 					<DefaultValue></DefaultValue>
-					<Value>X:/108JA/2014/05_May/07/313/108JA_313_Trn1.ov</Value>
+					<Value>C:/Users/seidi/Documents/GitHub/real-time-bmi/test_data/16ch_mi_hands.ov</Value>
 					<Modifiability>false</Modifiability>
 				</Setting>
 			</Settings>
@@ -223,7 +223,7 @@
 					<TypeIdentifier>(0x79a9edeb, 0x245d83fc)</TypeIdentifier>
 					<Name>Channel List</Name>
 					<DefaultValue>:</DefaultValue>
-					<Value>1;2;3;4;5;6;7;8;9;10;12;13;14;15;16</Value>
+					<Value>1;2;3;4;5;6;7;8;9;10;11;12;13;14;15;16</Value>
 					<Modifiability>false</Modifiability>
 				</Setting>
 				<Setting>
@@ -345,7 +345,7 @@
 				</Attribute>
 				<Attribute>
 					<Identifier>(0x8d21ff41, 0xdf6afe7e)</Identifier>
-					<Value></Value>
+					<Value>C:/Users/seidi/Documents/GitHub/real-time-bmi/mi processing v1/csp.cfg</Value>
 				</Attribute>
 				<Attribute>
 					<Identifier>(0xc80ce8af, 0xf699f813)</Identifier>
@@ -764,7 +764,7 @@
 					<TypeIdentifier>(0x330306dd, 0x74a95f98)</TypeIdentifier>
 					<Name>Filename to save configuration to</Name>
 					<DefaultValue>${Path_UserData}/my-classifier.xml</DefaultValue>
-					<Value>${Path_UserData}/my-classifier.xml</Value>
+					<Value>C:/Users/seidi/Documents/GitHub/real-time-bmi/mi processing v1/classifier.xml</Value>
 					<Modifiability>false</Modifiability>
 				</Setting>
 				<Setting>

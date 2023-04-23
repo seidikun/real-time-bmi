@@ -1,0 +1,8 @@
+Coisas que precisamos implementar
+- Sistema de nomeação de arquivos
+	- Na aasdap cada paciente possuía uma pasta, e o nome do arquivo era e.g. 103CO_LSL_1458_Trn1_$core{date}_$core{time}.ov
+
+
+mi processing v1 - erros comuns
+- 16chan_1_acquisition.xml could not find motor-imagery-bci-grz-stimulator.lua
+	- Double-click Lua Stimulator box and find file in mi processing v1/scripts folder

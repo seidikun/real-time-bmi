@@ -259,7 +259,7 @@
 			</Attributes>
 		</Box>
 		<Box>
-			<Identifier>(0x000014fe, 0x00000d10)</Identifier>
+			<Identifier>(0x000014fe, 0x00000d11)</Identifier>
 			<Name>Channel Selector</Name>
 			<AlgorithmClassIdentifier>(0x361722e8, 0x311574e8)</AlgorithmClassIdentifier>
 			<Inputs>
@@ -279,7 +279,7 @@
 					<TypeIdentifier>(0x79a9edeb, 0x245d83fc)</TypeIdentifier>
 					<Name>Channel List</Name>
 					<DefaultValue>:</DefaultValue>
-					<Value>1;2;3;4;5;6;7;8;9;10;12;13;14;15;16</Value>
+					<Value>1;2;3;4;5;6;7;8;9;10;11;12;13;14;15;16</Value>
 					<Modifiability>false</Modifiability>
 				</Setting>
 				<Setting>
@@ -387,28 +387,6 @@
 	</Boxes>
 	<Links>
 		<Link>
-			<Identifier>(0x0000057c, 0x00002913)</Identifier>
-			<Source>
-				<BoxIdentifier>(0x00000de5, 0x00006f3d)</BoxIdentifier>
-				<BoxOutputIndex>1</BoxOutputIndex>
-			</Source>
-			<Target>
-				<BoxIdentifier>(0x000014fe, 0x00000d10)</BoxIdentifier>
-				<BoxInputIndex>0</BoxInputIndex>
-			</Target>
-		</Link>
-		<Link>
-			<Identifier>(0x00000bf8, 0x0000238c)</Identifier>
-			<Source>
-				<BoxIdentifier>(0x000014fe, 0x00000d10)</BoxIdentifier>
-				<BoxOutputIndex>0</BoxOutputIndex>
-			</Source>
-			<Target>
-				<BoxIdentifier>(0x0000430a, 0x00005706)</BoxIdentifier>
-				<BoxInputIndex>0</BoxInputIndex>
-			</Target>
-		</Link>
-		<Link>
 			<Identifier>(0x00001b8a, 0x0000317c)</Identifier>
 			<Source>
 				<BoxIdentifier>(0x00000403, 0x000073ae)</BoxIdentifier>
@@ -416,6 +394,28 @@
 			</Source>
 			<Target>
 				<BoxIdentifier>(0x00000d0c, 0x00004916)</BoxIdentifier>
+				<BoxInputIndex>0</BoxInputIndex>
+			</Target>
+		</Link>
+		<Link>
+			<Identifier>(0x00002227, 0x0000524e)</Identifier>
+			<Source>
+				<BoxIdentifier>(0x00000de5, 0x00006f3d)</BoxIdentifier>
+				<BoxOutputIndex>1</BoxOutputIndex>
+			</Source>
+			<Target>
+				<BoxIdentifier>(0x000014fe, 0x00000d11)</BoxIdentifier>
+				<BoxInputIndex>0</BoxInputIndex>
+			</Target>
+		</Link>
+		<Link>
+			<Identifier>(0x00005db3, 0x00003fa7)</Identifier>
+			<Source>
+				<BoxIdentifier>(0x000014fe, 0x00000d11)</BoxIdentifier>
+				<BoxOutputIndex>0</BoxOutputIndex>
+			</Source>
+			<Target>
+				<BoxIdentifier>(0x0000430a, 0x00005706)</BoxIdentifier>
 				<BoxInputIndex>0</BoxInputIndex>
 			</Target>
 		</Link>

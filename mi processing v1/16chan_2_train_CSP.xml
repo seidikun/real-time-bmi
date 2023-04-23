@@ -149,7 +149,7 @@
 			</Attributes>
 		</Box>
 		<Box>
-			<Identifier>(0x000014fe, 0x00000d10)</Identifier>
+			<Identifier>(0x000014fe, 0x00000d11)</Identifier>
 			<Name>Channel Selector</Name>
 			<AlgorithmClassIdentifier>(0x361722e8, 0x311574e8)</AlgorithmClassIdentifier>
 			<Inputs>
@@ -169,7 +169,7 @@
 					<TypeIdentifier>(0x79a9edeb, 0x245d83fc)</TypeIdentifier>
 					<Name>Channel List</Name>
 					<DefaultValue>:</DefaultValue>
-					<Value>1;2;3;4;5;6;7;8;9;10;12;13;14;15;16</Value>
+					<Value>1;2;3;4;5;6;7;8;9;10;11;12;13;14;15;16</Value>
 					<Modifiability>false</Modifiability>
 				</Setting>
 				<Setting>
@@ -245,7 +245,7 @@
 					<TypeIdentifier>(0x330306dd, 0x74a95f98)</TypeIdentifier>
 					<Name>Filename</Name>
 					<DefaultValue></DefaultValue>
-					<Value>X:/108JA/2014/05_May/07/313/108JA_313_Trn1.ov</Value>
+					<Value>C:/Users/seidi/Documents/GitHub/real-time-bmi/test_data/16ch_mi_hands.ov</Value>
 					<Modifiability>false</Modifiability>
 				</Setting>
 			</Settings>
@@ -352,7 +352,7 @@
 		</Box>
 		<Box>
 			<Identifier>(0x00002b3f, 0x0000570a)</Identifier>
-			<Name>Left Trials</Name>
+			<Name>Right Trials</Name>
 			<AlgorithmClassIdentifier>(0x426163d1, 0x324237b0)</AlgorithmClassIdentifier>
 			<Inputs>
 				<Input>
@@ -561,7 +561,7 @@
 					<TypeIdentifier>(0x330306dd, 0x74a95f98)</TypeIdentifier>
 					<Name>Spatial filter configuration</Name>
 					<DefaultValue></DefaultValue>
-					<Value>X:/108JA/2014/05_May/07/313/108JA_313_Trn1_6D_CSP_NEW_SOLE.cfg</Value>
+					<Value>C:/Users/seidi/Documents/GitHub/real-time-bmi/mi processing v1/csp.cfg</Value>
 					<Modifiability>false</Modifiability>
 				</Setting>
 				<Setting>
@@ -620,17 +620,6 @@
 			</Target>
 		</Link>
 		<Link>
-			<Identifier>(0x00000bf8, 0x0000238c)</Identifier>
-			<Source>
-				<BoxIdentifier>(0x000014fe, 0x00000d10)</BoxIdentifier>
-				<BoxOutputIndex>0</BoxOutputIndex>
-			</Source>
-			<Target>
-				<BoxIdentifier>(0x0000430a, 0x00005706)</BoxIdentifier>
-				<BoxInputIndex>0</BoxInputIndex>
-			</Target>
-		</Link>
-		<Link>
 			<Identifier>(0x0000182c, 0x00007614)</Identifier>
 			<Source>
 				<BoxIdentifier>(0x000074d6, 0x00002a79)</BoxIdentifier>
@@ -686,6 +675,17 @@
 			</Target>
 		</Link>
 		<Link>
+			<Identifier>(0x00004a71, 0x00006933)</Identifier>
+			<Source>
+				<BoxIdentifier>(0x000014fe, 0x00000d11)</BoxIdentifier>
+				<BoxOutputIndex>0</BoxOutputIndex>
+			</Source>
+			<Target>
+				<BoxIdentifier>(0x0000430a, 0x00005706)</BoxIdentifier>
+				<BoxInputIndex>0</BoxInputIndex>
+			</Target>
+		</Link>
+		<Link>
 			<Identifier>(0x00004a98, 0x000018de)</Identifier>
 			<Source>
 				<BoxIdentifier>(0x00002316, 0x00005d5e)</BoxIdentifier>
@@ -708,6 +708,17 @@
 			</Target>
 		</Link>
 		<Link>
+			<Identifier>(0x000067db, 0x00000e23)</Identifier>
+			<Source>
+				<BoxIdentifier>(0x00002316, 0x00005d5e)</BoxIdentifier>
+				<BoxOutputIndex>1</BoxOutputIndex>
+			</Source>
+			<Target>
+				<BoxIdentifier>(0x000014fe, 0x00000d11)</BoxIdentifier>
+				<BoxInputIndex>0</BoxInputIndex>
+			</Target>
+		</Link>
+		<Link>
 			<Identifier>(0x00007202, 0x000045bc)</Identifier>
 			<Source>
 				<BoxIdentifier>(0x0000430a, 0x00005706)</BoxIdentifier>
@@ -715,17 +726,6 @@
 			</Source>
 			<Target>
 				<BoxIdentifier>(0x00000403, 0x000073ae)</BoxIdentifier>
-				<BoxInputIndex>0</BoxInputIndex>
-			</Target>
-		</Link>
-		<Link>
-			<Identifier>(0x00007b44, 0x0000586f)</Identifier>
-			<Source>
-				<BoxIdentifier>(0x00002316, 0x00005d5e)</BoxIdentifier>
-				<BoxOutputIndex>1</BoxOutputIndex>
-			</Source>
-			<Target>
-				<BoxIdentifier>(0x000014fe, 0x00000d10)</BoxIdentifier>
 				<BoxInputIndex>0</BoxInputIndex>
 			</Target>
 		</Link>
