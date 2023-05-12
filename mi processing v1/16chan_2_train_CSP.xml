@@ -223,21 +223,17 @@
 			</Attributes>
 		</Box>
 		<Box>
-			<Identifier>(0x00002316, 0x00005d5e)</Identifier>
-			<Name>Generic stream reader</Name>
-			<AlgorithmClassIdentifier>(0x6468099f, 0x0370095a)</AlgorithmClassIdentifier>
+			<Identifier>(0x000025b6, 0x00006f4b)</Identifier>
+			<Name>CSV File Reader</Name>
+			<AlgorithmClassIdentifier>(0x336a3d9a, 0x753f1ba4)</AlgorithmClassIdentifier>
 			<Outputs>
 				<Output>
-					<TypeIdentifier>(0x403488e7, 0x565d70b6)</TypeIdentifier>
-					<Name>Output stream 1</Name>
-				</Output>
-				<Output>
 					<TypeIdentifier>(0x5ba36127, 0x195feae1)</TypeIdentifier>
-					<Name>Output stream 2</Name>
+					<Name>Output stream</Name>
 				</Output>
 				<Output>
 					<TypeIdentifier>(0x6f752dd0, 0x082a321e)</TypeIdentifier>
-					<Name>Output stream 3</Name>
+					<Name>Output stimulation</Name>
 				</Output>
 			</Outputs>
 			<Settings>
@@ -245,22 +241,18 @@
 					<TypeIdentifier>(0x330306dd, 0x74a95f98)</TypeIdentifier>
 					<Name>Filename</Name>
 					<DefaultValue></DefaultValue>
-					<Value>C:/Users/seidi/Documents/GitHub/real-time-bmi/test_data/16ch_mi_hands.ov</Value>
+					<Value>C:/Users/Laboratorio/Desktop/record-[2023.05.12-14.19.06].csv</Value>
 					<Modifiability>false</Modifiability>
 				</Setting>
 			</Settings>
 			<Attributes>
-				<Attribute>
-					<Identifier>(0x17ee7c08, 0x94c14893)</Identifier>
-					<Value></Value>
-				</Attribute>
 				<Attribute>
 					<Identifier>(0x1fa7a38f, 0x54edbe0b)</Identifier>
 					<Value>-352</Value>
 				</Attribute>
 				<Attribute>
 					<Identifier>(0x207c9054, 0x3c841b63)</Identifier>
-					<Value>992</Value>
+					<Value>1008</Value>
 				</Attribute>
 				<Attribute>
 					<Identifier>(0x30a4e5c9, 0x83502953)</Identifier>
@@ -268,11 +260,15 @@
 				</Attribute>
 				<Attribute>
 					<Identifier>(0x4e7b798a, 0x183beafb)</Identifier>
-					<Value>(0xf37b8e7a, 0x1bc33e4e)</Value>
+					<Value>(0xa9cdc629, 0xb153eb33)</Value>
 				</Attribute>
 				<Attribute>
-					<Identifier>(0xc46b3d00, 0x3e0454e1)</Identifier>
-					<Value>(0x00000000, 0x005e1c11)</Value>
+					<Identifier>(0xc80ce8af, 0xf699f813)</Identifier>
+					<Value>2</Value>
+				</Attribute>
+				<Attribute>
+					<Identifier>(0xce18836a, 0x9c0eb403)</Identifier>
+					<Value>1</Value>
 				</Attribute>
 			</Attributes>
 		</Box>
@@ -554,14 +550,14 @@
 					<TypeIdentifier>(0x2c132d6e, 0x44ab0d97)</TypeIdentifier>
 					<Name>Train Trigger</Name>
 					<DefaultValue>OVTK_GDF_End_Of_Session</DefaultValue>
-					<Value>OVTK_StimulationId_Train</Value>
+					<Value>OVTK_GDF_End_Of_Session</Value>
 					<Modifiability>false</Modifiability>
 				</Setting>
 				<Setting>
 					<TypeIdentifier>(0x330306dd, 0x74a95f98)</TypeIdentifier>
 					<Name>Spatial filter configuration</Name>
 					<DefaultValue></DefaultValue>
-					<Value>C:/Users/seidi/Documents/GitHub/real-time-bmi/mi processing v1/csp.cfg</Value>
+					<Value>C:/Users/Laboratorio/Desktop/csp.cfg</Value>
 					<Modifiability>false</Modifiability>
 				</Setting>
 				<Setting>
@@ -617,6 +613,17 @@
 			<Target>
 				<BoxIdentifier>(0x00002b3f, 0x0000570a)</BoxIdentifier>
 				<BoxInputIndex>1</BoxInputIndex>
+			</Target>
+		</Link>
+		<Link>
+			<Identifier>(0x000006c5, 0x0000480e)</Identifier>
+			<Source>
+				<BoxIdentifier>(0x000025b6, 0x00006f4b)</BoxIdentifier>
+				<BoxOutputIndex>0</BoxOutputIndex>
+			</Source>
+			<Target>
+				<BoxIdentifier>(0x000014fe, 0x00000d11)</BoxIdentifier>
+				<BoxInputIndex>0</BoxInputIndex>
 			</Target>
 		</Link>
 		<Link>
@@ -686,17 +693,6 @@
 			</Target>
 		</Link>
 		<Link>
-			<Identifier>(0x00004a98, 0x000018de)</Identifier>
-			<Source>
-				<BoxIdentifier>(0x00002316, 0x00005d5e)</BoxIdentifier>
-				<BoxOutputIndex>2</BoxOutputIndex>
-			</Source>
-			<Target>
-				<BoxIdentifier>(0x000014e2, 0x00002a1d)</BoxIdentifier>
-				<BoxInputIdentifier>(0xb7fd2a24, 0x537cf5be)</BoxInputIdentifier>
-			</Target>
-		</Link>
-		<Link>
 			<Identifier>(0x0000538f, 0x00000e79)</Identifier>
 			<Source>
 				<BoxIdentifier>(0x00002b3f, 0x00005709)</BoxIdentifier>
@@ -708,17 +704,6 @@
 			</Target>
 		</Link>
 		<Link>
-			<Identifier>(0x000067db, 0x00000e23)</Identifier>
-			<Source>
-				<BoxIdentifier>(0x00002316, 0x00005d5e)</BoxIdentifier>
-				<BoxOutputIndex>1</BoxOutputIndex>
-			</Source>
-			<Target>
-				<BoxIdentifier>(0x000014fe, 0x00000d11)</BoxIdentifier>
-				<BoxInputIndex>0</BoxInputIndex>
-			</Target>
-		</Link>
-		<Link>
 			<Identifier>(0x00007202, 0x000045bc)</Identifier>
 			<Source>
 				<BoxIdentifier>(0x0000430a, 0x00005706)</BoxIdentifier>
@@ -727,6 +712,17 @@
 			<Target>
 				<BoxIdentifier>(0x00000403, 0x000073ae)</BoxIdentifier>
 				<BoxInputIndex>0</BoxInputIndex>
+			</Target>
+		</Link>
+		<Link>
+			<Identifier>(0x0000753a, 0x0000302a)</Identifier>
+			<Source>
+				<BoxIdentifier>(0x000025b6, 0x00006f4b)</BoxIdentifier>
+				<BoxOutputIndex>1</BoxOutputIndex>
+			</Source>
+			<Target>
+				<BoxIdentifier>(0x000014e2, 0x00002a1d)</BoxIdentifier>
+				<BoxInputIdentifier>(0xb7fd2a24, 0x537cf5be)</BoxInputIdentifier>
 			</Target>
 		</Link>
 		<Link>
