@@ -217,7 +217,7 @@
 				</Attribute>
 				<Attribute>
 					<Identifier>(0x8d21ff41, 0xdf6afe7e)</Identifier>
-					<Value>C:/Users/Laboratorio/Desktop/csp.cfg</Value>
+					<Value>C:/Users/Laboratorio/Desktop/csp-spatial-filter.cfg</Value>
 				</Attribute>
 				<Attribute>
 					<Identifier>(0xc80ce8af, 0xf699f813)</Identifier>
@@ -877,7 +877,7 @@
 					<TypeIdentifier>(0x330306dd, 0x74a95f98)</TypeIdentifier>
 					<Name>Filename</Name>
 					<DefaultValue></DefaultValue>
-					<Value>C:/Users/Laboratorio/Desktop/record-[2023.05.12-14.19.06].csv</Value>
+					<Value>C:/Users/Laboratorio/Desktop/record-[2023.05.15-15.58.39].csv</Value>
 					<Modifiability>false</Modifiability>
 				</Setting>
 			</Settings>
