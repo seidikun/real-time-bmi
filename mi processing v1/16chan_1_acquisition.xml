@@ -543,7 +543,7 @@
 					<TypeIdentifier>(0xb0d0db45, 0x49cbc34a)</TypeIdentifier>
 					<Name>Lua Script</Name>
 					<DefaultValue></DefaultValue>
-					<Value>C:/Users/Laboratorio/Documents/GitHub/real-time-bmi/mi processing v1/scripts/motor-imagery-bci-graz-stimulator.lua</Value>
+					<Value>${Player_ScenarioDirectory}/scripts/motor-imagery-bci-graz-stimulator.lua</Value>
 					<Modifiability>false</Modifiability>
 				</Setting>
 				<Setting>
@@ -679,7 +679,7 @@
 					<TypeIdentifier>(0x330306dd, 0x74a95f98)</TypeIdentifier>
 					<Name>Filename</Name>
 					<DefaultValue>record-[$core{date}-$core{time}].csv</DefaultValue>
-					<Value>C:/Users/Laboratorio/Desktop/record-[$core{date}-$core{time}].csv</Value>
+					<Value>${Path_Save}/${Experiment}_${Participant}_Sess${Session_nb}.csv</Value>
 					<Modifiability>false</Modifiability>
 				</Setting>
 				<Setting>

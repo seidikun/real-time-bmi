@@ -2,7 +2,15 @@
 	<FormatVersion>2</FormatVersion>
 	<Creator>OpenViBE Designer</Creator>
 	<CreatorVersion>3.4.0</CreatorVersion>
-	<Settings></Settings>
+	<Settings>
+		<Setting>
+			<Identifier>(0x87a2d221, 0x80d73f66)</Identifier>
+			<TypeIdentifier>(0x79a9edeb, 0x245d83fc)</TypeIdentifier>
+			<Name>Setting 1</Name>
+			<DefaultValue>0</DefaultValue>
+			<Value>0</Value>
+		</Setting>
+	</Settings>
 	<Inputs></Inputs>
 	<Outputs></Outputs>
 	<Boxes>
@@ -149,6 +157,80 @@
 			</Attributes>
 		</Box>
 		<Box>
+			<Identifier>(0x000014fe, 0x00000d11)</Identifier>
+			<Name>Channel Selector</Name>
+			<AlgorithmClassIdentifier>(0x361722e8, 0x311574e8)</AlgorithmClassIdentifier>
+			<Inputs>
+				<Input>
+					<TypeIdentifier>(0x5ba36127, 0x195feae1)</TypeIdentifier>
+					<Name>Input signal</Name>
+				</Input>
+			</Inputs>
+			<Outputs>
+				<Output>
+					<TypeIdentifier>(0x5ba36127, 0x195feae1)</TypeIdentifier>
+					<Name>Output signal</Name>
+				</Output>
+			</Outputs>
+			<Settings>
+				<Setting>
+					<TypeIdentifier>(0x79a9edeb, 0x245d83fc)</TypeIdentifier>
+					<Name>Channel List</Name>
+					<DefaultValue>:</DefaultValue>
+					<Value>1;2;3;4;5;6;7;8;9;10;11;12;13;14;15;16</Value>
+					<Modifiability>false</Modifiability>
+				</Setting>
+				<Setting>
+					<TypeIdentifier>(0x3bcf9e67, 0x0c23994d)</TypeIdentifier>
+					<Name>Action</Name>
+					<DefaultValue>Select</DefaultValue>
+					<Value>Select</Value>
+					<Modifiability>false</Modifiability>
+				</Setting>
+				<Setting>
+					<TypeIdentifier>(0x666f25e9, 0x3e5738d6)</TypeIdentifier>
+					<Name>Channel Matching Method</Name>
+					<DefaultValue>Smart</DefaultValue>
+					<Value>Index</Value>
+					<Modifiability>false</Modifiability>
+				</Setting>
+			</Settings>
+			<Attributes>
+				<Attribute>
+					<Identifier>(0x1fa7a38f, 0x54edbe0b)</Identifier>
+					<Value>-336</Value>
+				</Attribute>
+				<Attribute>
+					<Identifier>(0x207c9054, 0x3c841b63)</Identifier>
+					<Value>800</Value>
+				</Attribute>
+				<Attribute>
+					<Identifier>(0x30a4e5c9, 0x83502953)</Identifier>
+					<Value></Value>
+				</Attribute>
+				<Attribute>
+					<Identifier>(0x4e7b798a, 0x183beafb)</Identifier>
+					<Value>(0x277826e1, 0xa30a3bd0)</Value>
+				</Attribute>
+				<Attribute>
+					<Identifier>(0x527ad68d, 0x16d746a0)</Identifier>
+					<Value></Value>
+				</Attribute>
+				<Attribute>
+					<Identifier>(0xc80ce8af, 0xf699f813)</Identifier>
+					<Value>1</Value>
+				</Attribute>
+				<Attribute>
+					<Identifier>(0xce18836a, 0x9c0eb403)</Identifier>
+					<Value>3</Value>
+				</Attribute>
+				<Attribute>
+					<Identifier>(0xcfad85b0, 0x7c6d841c)</Identifier>
+					<Value>1</Value>
+				</Attribute>
+			</Attributes>
+		</Box>
+		<Box>
 			<Identifier>(0x000015ce, 0x00005a21)</Identifier>
 			<Name>CSP Spatial Filter</Name>
 			<AlgorithmClassIdentifier>(0xdd332c6c, 0x195b4fd4)</AlgorithmClassIdentifier>
@@ -217,7 +299,7 @@
 				</Attribute>
 				<Attribute>
 					<Identifier>(0x8d21ff41, 0xdf6afe7e)</Identifier>
-					<Value>C:/Users/Laboratorio/Desktop/csp-spatial-filter.cfg</Value>
+					<Value>${Path_Save}/${Experiment}_${Participant}_Sess${Session_nb}_csp.cfg</Value>
 				</Attribute>
 				<Attribute>
 					<Identifier>(0xc80ce8af, 0xf699f813)</Identifier>
@@ -584,7 +666,7 @@
 					<TypeIdentifier>(0x330306dd, 0x74a95f98)</TypeIdentifier>
 					<Name>Filename to save configuration to</Name>
 					<DefaultValue>${Path_UserData}/my-classifier.xml</DefaultValue>
-					<Value>C:/Users/Laboratorio/Desktop/classifier.cfg</Value>
+					<Value>${Path_Save}/${Experiment}_${Participant}_Sess${Session_nb}_lda.cfg</Value>
 					<Modifiability>false</Modifiability>
 				</Setting>
 				<Setting>
@@ -612,28 +694,98 @@
 					<TypeIdentifier>(0xd765a736, 0xed708c65)</TypeIdentifier>
 					<Name>Algorithm to use</Name>
 					<DefaultValue>Linear Discrimimant Analysis (LDA)</DefaultValue>
-					<Value>Linear Discrimimant Analysis (LDA)</Value>
-					<Modifiability>false</Modifiability>
-				</Setting>
-				<Setting>
-					<TypeIdentifier>(0x2cdb2f0b, 0x12f231ea)</TypeIdentifier>
-					<Name>Use shrinkage</Name>
-					<DefaultValue>false</DefaultValue>
-					<Value>false</Value>
+					<Value>Support Vector Machine (SVM)</Value>
 					<Modifiability>false</Modifiability>
 				</Setting>
 				<Setting>
 					<TypeIdentifier>(0x512a166f, 0x5c3ef83f)</TypeIdentifier>
-					<Name>Shrinkage coefficient (-1 == auto)</Name>
-					<DefaultValue>-1.000000</DefaultValue>
-					<Value>-1.000000</Value>
+					<Name>Epsilon</Name>
+					<DefaultValue>0.100000</DefaultValue>
+					<Value>0.100000</Value>
+					<Modifiability>false</Modifiability>
+				</Setting>
+				<Setting>
+					<TypeIdentifier>(0x79a9edeb, 0x245d83fc)</TypeIdentifier>
+					<Name>Weight</Name>
+					<DefaultValue></DefaultValue>
+					<Value></Value>
+					<Modifiability>false</Modifiability>
+				</Setting>
+				<Setting>
+					<TypeIdentifier>(0x2af426d1, 0x72fb7bac)</TypeIdentifier>
+					<Name>SVM type</Name>
+					<DefaultValue>C-SVC</DefaultValue>
+					<Value>C-SVC</Value>
+					<Modifiability>false</Modifiability>
+				</Setting>
+				<Setting>
+					<TypeIdentifier>(0x007deef9, 0x2f3e95c6)</TypeIdentifier>
+					<Name>Degree</Name>
+					<DefaultValue>3</DefaultValue>
+					<Value>3</Value>
+					<Modifiability>false</Modifiability>
+				</Setting>
+				<Setting>
+					<TypeIdentifier>(0x54bb0016, 0x6aa27496)</TypeIdentifier>
+					<Name>Kernel type</Name>
+					<DefaultValue>Linear</DefaultValue>
+					<Value>Linear</Value>
+					<Modifiability>false</Modifiability>
+				</Setting>
+				<Setting>
+					<TypeIdentifier>(0x79a9edeb, 0x245d83fc)</TypeIdentifier>
+					<Name>Weight Label</Name>
+					<DefaultValue></DefaultValue>
+					<Value></Value>
+					<Modifiability>false</Modifiability>
+				</Setting>
+				<Setting>
+					<TypeIdentifier>(0x512a166f, 0x5c3ef83f)</TypeIdentifier>
+					<Name>Epsilon tolerance</Name>
+					<DefaultValue>0.001000</DefaultValue>
+					<Value>0.001000</Value>
+					<Modifiability>false</Modifiability>
+				</Setting>
+				<Setting>
+					<TypeIdentifier>(0x512a166f, 0x5c3ef83f)</TypeIdentifier>
+					<Name>Cost</Name>
+					<DefaultValue>1.000000</DefaultValue>
+					<Value>1.000000</Value>
+					<Modifiability>false</Modifiability>
+				</Setting>
+				<Setting>
+					<TypeIdentifier>(0x512a166f, 0x5c3ef83f)</TypeIdentifier>
+					<Name>Cache size</Name>
+					<DefaultValue>100.000000</DefaultValue>
+					<Value>100.000000</Value>
+					<Modifiability>false</Modifiability>
+				</Setting>
+				<Setting>
+					<TypeIdentifier>(0x512a166f, 0x5c3ef83f)</TypeIdentifier>
+					<Name>Gamma</Name>
+					<DefaultValue>0.000000</DefaultValue>
+					<Value>0.000000</Value>
+					<Modifiability>false</Modifiability>
+				</Setting>
+				<Setting>
+					<TypeIdentifier>(0x512a166f, 0x5c3ef83f)</TypeIdentifier>
+					<Name>Nu</Name>
+					<DefaultValue>0.500000</DefaultValue>
+					<Value>0.500000</Value>
 					<Modifiability>false</Modifiability>
 				</Setting>
 				<Setting>
 					<TypeIdentifier>(0x2cdb2f0b, 0x12f231ea)</TypeIdentifier>
-					<Name>Shrinkage: Force diagonal cov (DDA)</Name>
-					<DefaultValue>false</DefaultValue>
-					<Value>false</Value>
+					<Name>Shrinking</Name>
+					<DefaultValue>true</DefaultValue>
+					<Value>true</Value>
+					<Modifiability>false</Modifiability>
+				</Setting>
+				<Setting>
+					<TypeIdentifier>(0x512a166f, 0x5c3ef83f)</TypeIdentifier>
+					<Name>Coef 0</Name>
+					<DefaultValue>0.000000</DefaultValue>
+					<Value>0.000000</Value>
 					<Modifiability>false</Modifiability>
 				</Setting>
 				<Setting>
@@ -877,7 +1029,7 @@
 					<TypeIdentifier>(0x330306dd, 0x74a95f98)</TypeIdentifier>
 					<Name>Filename</Name>
 					<DefaultValue></DefaultValue>
-					<Value>C:/Users/Laboratorio/Desktop/record-[2023.05.15-15.58.39].csv</Value>
+					<Value>C:/Users/Laboratorio/Desktop/motor_mi_AL106_online_6a.csv</Value>
 					<Modifiability>false</Modifiability>
 				</Setting>
 			</Settings>
@@ -910,6 +1062,17 @@
 		</Box>
 	</Boxes>
 	<Links>
+		<Link>
+			<Identifier>(0x00000f3e, 0x00000aef)</Identifier>
+			<Source>
+				<BoxIdentifier>(0x00006fd9, 0x000013b2)</BoxIdentifier>
+				<BoxOutputIndex>0</BoxOutputIndex>
+			</Source>
+			<Target>
+				<BoxIdentifier>(0x000014fe, 0x00000d11)</BoxIdentifier>
+				<BoxInputIndex>0</BoxInputIndex>
+			</Target>
+		</Link>
 		<Link>
 			<Identifier>(0x000013fa, 0x00003cbe)</Identifier>
 			<Source>
@@ -1032,6 +1195,17 @@
 			</Target>
 		</Link>
 		<Link>
+			<Identifier>(0x00004f2f, 0x00001e44)</Identifier>
+			<Source>
+				<BoxIdentifier>(0x000014fe, 0x00000d11)</BoxIdentifier>
+				<BoxOutputIndex>0</BoxOutputIndex>
+			</Source>
+			<Target>
+				<BoxIdentifier>(0x00000403, 0x000073ae)</BoxIdentifier>
+				<BoxInputIndex>0</BoxInputIndex>
+			</Target>
+		</Link>
+		<Link>
 			<Identifier>(0x00005a33, 0x000001c0)</Identifier>
 			<Source>
 				<BoxIdentifier>(0x00002b3f, 0x00005709)</BoxIdentifier>
@@ -1097,17 +1271,6 @@
 				<BoxInputIdentifier>(0xb7fd2a24, 0x537cf5be)</BoxInputIdentifier>
 			</Target>
 		</Link>
-		<Link>
-			<Identifier>(0x0000750f, 0x000044de)</Identifier>
-			<Source>
-				<BoxIdentifier>(0x00006fd9, 0x000013b2)</BoxIdentifier>
-				<BoxOutputIndex>0</BoxOutputIndex>
-			</Source>
-			<Target>
-				<BoxIdentifier>(0x00000403, 0x000073ae)</BoxIdentifier>
-				<BoxInputIndex>0</BoxInputIndex>
-			</Target>
-		</Link>
 	</Links>
 	<Comments>
 		<Comment>
@@ -1120,7 +1283,7 @@
 				</Attribute>
 				<Attribute>
 					<Identifier>(0x7234b86b, 0x2b8651a5)</Identifier>
-					<Value>240</Value>
+					<Value>272</Value>
 				</Attribute>
 			</Attributes>
 		</Comment>
@@ -1152,7 +1315,7 @@ to where you want to save your LDA classifier
 				</Attribute>
 				<Attribute>
 					<Identifier>(0x7234b86b, 0x2b8651a5)</Identifier>
-					<Value>160</Value>
+					<Value>192</Value>
 				</Attribute>
 			</Attributes>
 		</Comment>
@@ -1164,11 +1327,28 @@ data just recorded from Acquisition
 			<Attributes>
 				<Attribute>
 					<Identifier>(0x473d9a43, 0x97fc0a97)</Identifier>
-					<Value>1040</Value>
+					<Value>1024</Value>
 				</Attribute>
 				<Attribute>
 					<Identifier>(0x7234b86b, 0x2b8651a5)</Identifier>
 					<Value>-416</Value>
+				</Attribute>
+			</Attributes>
+		</Comment>
+		<Comment>
+			<Identifier>(0x000071f3, 0x00001db4)</Identifier>
+			<Text>WAP Team -- May 2023
+WAP Training -- Train Classifier
+
+Used to train the classifier based on the data taken from Acquisition</Text>
+			<Attributes>
+				<Attribute>
+					<Identifier>(0x473d9a43, 0x97fc0a97)</Identifier>
+					<Value>544</Value>
+				</Attribute>
+				<Attribute>
+					<Identifier>(0x7234b86b, 0x2b8651a5)</Identifier>
+					<Value>-400</Value>
 				</Attribute>
 			</Attributes>
 		</Comment>
