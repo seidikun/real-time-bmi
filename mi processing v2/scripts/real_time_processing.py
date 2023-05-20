@@ -7,6 +7,7 @@ Versão04: Recebe uma entrada do OV, processa e envia uma saída pro OV
 
 import numpy as np
 import pickle
+import configparser 
 from pyriemann.estimation          import Covariances
 from pyriemann.tangentspace        import tangent_space
 
@@ -43,13 +44,23 @@ class MyOVBox(OVBox):
 
         # contador de processamentos
         self.nProc               = 0
+
+        configParser = configparser.RawConfigParser()
+        configFilePath = r'C:\Users\Laboratorio\Documents\GitHub\real-time-bmi\mi processing v2\config.txt'
+        configParser.read(configFilePath)
+
+        Experiment      = configParser['PARAMETERS']['Experiment']
+        Participant     = configParser['PARAMETERS']['Participant']
+        Session_nb      = configParser['PARAMETERS']['Session_nb']
+        Path_Save       = configParser['PARAMETERS']['Path_Save']
+        sess_filename   = Path_Save + Participant + '/' + Experiment + '_' + Participant + '_Sess' + Session_nb
+        class_filename  = sess_filename + '_lda.pkl'
+        c_mean_filename = sess_filename + '_best_c_mean.pkl'
         
-        path_data = 'C:\\Users\\seidi\\Documents\\GitHub\\real-time-bmi\\mi processing v2\\'
-       
-        with open(path_data + 'best_c_mean.pkl', 'rb') as f: 
+        with open(c_mean_filename, 'rb') as f: 
             self.best_c_mean = pickle.load(f)
         
-        with open(path_data + 'lda.pkl', 'rb') as f: 
+        with open(class_filename, 'rb') as f: 
             self.lda = pickle.load(f)
 
     def initialize(self):
@@ -102,15 +113,6 @@ class MyOVBox(OVBox):
         # Processar o dado como quiser
 
         cont = 0
-        # for rowIndex, rowValue in enumerate(self.npBufferIN):
-        #     # O for vai iterar 1x pra cada canal
-        #     # rowIndex -> Nº Canal
-        #     # rowValue -> lista de valores de cada row -> Mesmo q: self.npBufferIN[rowIndex]
-        #     cont +=1
-        #     # self.npBufferOUT[rowIndex, :] = self.npBufferIN[rowIndex, :]**2
-        #     # if np.array_equal(self.npBufferIN[rowIndex],row):
-        #     #     print("ok")
-        #     pass
 
         # saída = quadrado da entrada
         self.npBufferOUT = self.npBufferIN[np.newaxis, ...]
