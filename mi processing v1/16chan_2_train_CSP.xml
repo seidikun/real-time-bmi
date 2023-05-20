@@ -223,17 +223,17 @@
 			</Attributes>
 		</Box>
 		<Box>
-			<Identifier>(0x000025b6, 0x00006f4b)</Identifier>
-			<Name>CSV File Reader</Name>
-			<AlgorithmClassIdentifier>(0x336a3d9a, 0x753f1ba4)</AlgorithmClassIdentifier>
+			<Identifier>(0x00002412, 0x000060d0)</Identifier>
+			<Name>Generic stream reader</Name>
+			<AlgorithmClassIdentifier>(0x6468099f, 0x0370095a)</AlgorithmClassIdentifier>
 			<Outputs>
 				<Output>
 					<TypeIdentifier>(0x5ba36127, 0x195feae1)</TypeIdentifier>
-					<Name>Output stream</Name>
+					<Name>Output Signal</Name>
 				</Output>
 				<Output>
 					<TypeIdentifier>(0x6f752dd0, 0x082a321e)</TypeIdentifier>
-					<Name>Output stimulation</Name>
+					<Name>Output Stimulations</Name>
 				</Output>
 			</Outputs>
 			<Settings>
@@ -241,18 +241,22 @@
 					<TypeIdentifier>(0x330306dd, 0x74a95f98)</TypeIdentifier>
 					<Name>Filename</Name>
 					<DefaultValue></DefaultValue>
-					<Value>${Path_Save}/${Experiment}_${Participant}_Sess${Session_nb}.csv</Value>
+					<Value>${Path_Save}/${Experiment}_${Participant}_Sess${Session_nb}.ov</Value>
 					<Modifiability>false</Modifiability>
 				</Setting>
 			</Settings>
 			<Attributes>
+				<Attribute>
+					<Identifier>(0x17ee7c08, 0x94c14893)</Identifier>
+					<Value></Value>
+				</Attribute>
 				<Attribute>
 					<Identifier>(0x1fa7a38f, 0x54edbe0b)</Identifier>
 					<Value>-96</Value>
 				</Attribute>
 				<Attribute>
 					<Identifier>(0x207c9054, 0x3c841b63)</Identifier>
-					<Value>528</Value>
+					<Value>544</Value>
 				</Attribute>
 				<Attribute>
 					<Identifier>(0x30a4e5c9, 0x83502953)</Identifier>
@@ -260,11 +264,11 @@
 				</Attribute>
 				<Attribute>
 					<Identifier>(0x4e7b798a, 0x183beafb)</Identifier>
-					<Value>(0xa9cdc629, 0xb153eb33)</Value>
+					<Value>(0xf37b8e7a, 0x1bc33e4e)</Value>
 				</Attribute>
 				<Attribute>
 					<Identifier>(0xc80ce8af, 0xf699f813)</Identifier>
-					<Value>2</Value>
+					<Value>1</Value>
 				</Attribute>
 				<Attribute>
 					<Identifier>(0xce18836a, 0x9c0eb403)</Identifier>
@@ -297,7 +301,7 @@
 					<TypeIdentifier>(0x512a166f, 0x5c3ef83f)</TypeIdentifier>
 					<Name>Epoch duration (in sec)</Name>
 					<DefaultValue>1</DefaultValue>
-					<Value>4</Value>
+					<Value>2</Value>
 					<Modifiability>false</Modifiability>
 				</Setting>
 				<Setting>
@@ -371,7 +375,7 @@
 					<TypeIdentifier>(0x512a166f, 0x5c3ef83f)</TypeIdentifier>
 					<Name>Epoch duration (in sec)</Name>
 					<DefaultValue>1</DefaultValue>
-					<Value>4</Value>
+					<Value>2</Value>
 					<Modifiability>false</Modifiability>
 				</Setting>
 				<Setting>
@@ -616,17 +620,6 @@
 			</Target>
 		</Link>
 		<Link>
-			<Identifier>(0x000006c5, 0x0000480e)</Identifier>
-			<Source>
-				<BoxIdentifier>(0x000025b6, 0x00006f4b)</BoxIdentifier>
-				<BoxOutputIndex>0</BoxOutputIndex>
-			</Source>
-			<Target>
-				<BoxIdentifier>(0x000014fe, 0x00000d11)</BoxIdentifier>
-				<BoxInputIndex>0</BoxInputIndex>
-			</Target>
-		</Link>
-		<Link>
 			<Identifier>(0x0000182c, 0x00007614)</Identifier>
 			<Source>
 				<BoxIdentifier>(0x000074d6, 0x00002a79)</BoxIdentifier>
@@ -704,6 +697,28 @@
 			</Target>
 		</Link>
 		<Link>
+			<Identifier>(0x00006151, 0x00007cd9)</Identifier>
+			<Source>
+				<BoxIdentifier>(0x00002412, 0x000060d0)</BoxIdentifier>
+				<BoxOutputIndex>1</BoxOutputIndex>
+			</Source>
+			<Target>
+				<BoxIdentifier>(0x000014e2, 0x00002a1d)</BoxIdentifier>
+				<BoxInputIdentifier>(0xb7fd2a24, 0x537cf5be)</BoxInputIdentifier>
+			</Target>
+		</Link>
+		<Link>
+			<Identifier>(0x00006bcc, 0x000051e5)</Identifier>
+			<Source>
+				<BoxIdentifier>(0x00002412, 0x000060d0)</BoxIdentifier>
+				<BoxOutputIndex>0</BoxOutputIndex>
+			</Source>
+			<Target>
+				<BoxIdentifier>(0x000014fe, 0x00000d11)</BoxIdentifier>
+				<BoxInputIndex>0</BoxInputIndex>
+			</Target>
+		</Link>
+		<Link>
 			<Identifier>(0x00007202, 0x000045bc)</Identifier>
 			<Source>
 				<BoxIdentifier>(0x0000430a, 0x00005706)</BoxIdentifier>
@@ -712,17 +727,6 @@
 			<Target>
 				<BoxIdentifier>(0x00000403, 0x000073ae)</BoxIdentifier>
 				<BoxInputIndex>0</BoxInputIndex>
-			</Target>
-		</Link>
-		<Link>
-			<Identifier>(0x0000753a, 0x0000302a)</Identifier>
-			<Source>
-				<BoxIdentifier>(0x000025b6, 0x00006f4b)</BoxIdentifier>
-				<BoxOutputIndex>1</BoxOutputIndex>
-			</Source>
-			<Target>
-				<BoxIdentifier>(0x000014e2, 0x00002a1d)</BoxIdentifier>
-				<BoxInputIdentifier>(0xb7fd2a24, 0x537cf5be)</BoxInputIdentifier>
 			</Target>
 		</Link>
 		<Link>
@@ -753,15 +757,15 @@
 			<Identifier>(0x00001ec7, 0x0000793b)</Identifier>
 			<Text>&lt;b&gt;&lt;u&gt;Step 1:&lt;/u&gt;&lt;/b&gt; Change "Filename" to the 
 EEG data just recorded from Acquisition
-&lt;i&gt;(i.e. Kyl014_Trn1.csv)&lt;/i&gt;</Text>
+&lt;i&gt;(i.e. Kyl014_Trn1.ov)&lt;/i&gt;</Text>
 			<Attributes>
 				<Attribute>
 					<Identifier>(0x473d9a43, 0x97fc0a97)</Identifier>
-					<Value>656</Value>
+					<Value>736</Value>
 				</Attribute>
 				<Attribute>
 					<Identifier>(0x7234b86b, 0x2b8651a5)</Identifier>
-					<Value>-32</Value>
+					<Value>-16</Value>
 				</Attribute>
 			</Attributes>
 		</Comment>

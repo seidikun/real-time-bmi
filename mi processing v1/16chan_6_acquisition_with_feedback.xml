@@ -291,7 +291,7 @@
 				</Attribute>
 				<Attribute>
 					<Identifier>(0x8d21ff41, 0xdf6afe7e)</Identifier>
-					<Value>C:/Users/Laboratorio/Desktop/csp.cfg</Value>
+					<Value>${Path_Save}/${Experiment}_${Participant}_Sess${Session_nb}_csp.cfg</Value>
 				</Attribute>
 				<Attribute>
 					<Identifier>(0xc80ce8af, 0xf699f813)</Identifier>
@@ -563,11 +563,11 @@
 				</Attribute>
 				<Attribute>
 					<Identifier>(0x1fa7a38f, 0x54edbe0b)</Identifier>
-					<Value>-224</Value>
+					<Value>-272</Value>
 				</Attribute>
 				<Attribute>
 					<Identifier>(0x207c9054, 0x3c841b63)</Identifier>
-					<Value>1008</Value>
+					<Value>992</Value>
 				</Attribute>
 				<Attribute>
 					<Identifier>(0x4e7b798a, 0x183beafb)</Identifier>
@@ -618,7 +618,7 @@
 					<TypeIdentifier>(0x330306dd, 0x74a95f98)</TypeIdentifier>
 					<Name>Filename</Name>
 					<DefaultValue></DefaultValue>
-					<Value>C:/WAP_DATA/103CO/103CO_LSL_1458_BarTrn1_$core{date}_$core{time}.ov</Value>
+					<Value>${Path_Save}/${Experiment}_${Participant}_Sess${Session_nb}_raw_online_feedback.ov</Value>
 					<Modifiability>false</Modifiability>
 				</Setting>
 				<Setting>
@@ -632,11 +632,11 @@
 			<Attributes>
 				<Attribute>
 					<Identifier>(0x1fa7a38f, 0x54edbe0b)</Identifier>
-					<Value>-96</Value>
+					<Value>-208</Value>
 				</Attribute>
 				<Attribute>
 					<Identifier>(0x207c9054, 0x3c841b63)</Identifier>
-					<Value>1184</Value>
+					<Value>800</Value>
 				</Attribute>
 				<Attribute>
 					<Identifier>(0x4e7b798a, 0x183beafb)</Identifier>
@@ -806,11 +806,11 @@
 				</Attribute>
 				<Attribute>
 					<Identifier>(0x1fa7a38f, 0x54edbe0b)</Identifier>
-					<Value>0</Value>
+					<Value>-64</Value>
 				</Attribute>
 				<Attribute>
 					<Identifier>(0x207c9054, 0x3c841b63)</Identifier>
-					<Value>1024</Value>
+					<Value>1008</Value>
 				</Attribute>
 				<Attribute>
 					<Identifier>(0x4e7b798a, 0x183beafb)</Identifier>
@@ -914,7 +914,7 @@
 					<TypeIdentifier>(0x330306dd, 0x74a95f98)</TypeIdentifier>
 					<Name>Filename to load configuration from</Name>
 					<DefaultValue></DefaultValue>
-					<Value></Value>
+					<Value>${Path_Save}/${Experiment}_${Participant}_Sess${Session_nb}_lda.cfg</Value>
 					<Modifiability>false</Modifiability>
 				</Setting>
 			</Settings>
@@ -1019,11 +1019,11 @@
 			<Attributes>
 				<Attribute>
 					<Identifier>(0x1fa7a38f, 0x54edbe0b)</Identifier>
-					<Value>64</Value>
+					<Value>0</Value>
 				</Attribute>
 				<Attribute>
 					<Identifier>(0x207c9054, 0x3c841b63)</Identifier>
-					<Value>1024</Value>
+					<Value>1008</Value>
 				</Attribute>
 				<Attribute>
 					<Identifier>(0x4e7b798a, 0x183beafb)</Identifier>
@@ -1141,6 +1141,17 @@
 			</Target>
 		</Link>
 		<Link>
+			<Identifier>(0x00004764, 0x00003e39)</Identifier>
+			<Source>
+				<BoxIdentifier>(0x000028b0, 0x00007786)</BoxIdentifier>
+				<BoxOutputIndex>1</BoxOutputIndex>
+			</Source>
+			<Target>
+				<BoxIdentifier>(0x00003b0d, 0x00003f58)</BoxIdentifier>
+				<BoxInputIndex>1</BoxInputIndex>
+			</Target>
+		</Link>
+		<Link>
 			<Identifier>(0x00004a71, 0x00006933)</Identifier>
 			<Source>
 				<BoxIdentifier>(0x000014fe, 0x00000d11)</BoxIdentifier>
@@ -1216,11 +1227,11 @@ you want to save the EEG data
 			<Attributes>
 				<Attribute>
 					<Identifier>(0x473d9a43, 0x97fc0a97)</Identifier>
-					<Value>400</Value>
+					<Value>1120</Value>
 				</Attribute>
 				<Attribute>
 					<Identifier>(0x7234b86b, 0x2b8651a5)</Identifier>
-					<Value>-144</Value>
+					<Value>-192</Value>
 				</Attribute>
 			</Attributes>
 		</Comment>
@@ -1272,7 +1283,7 @@ to a LDA classifier saved from Train Classifier
 		</Comment>
 		<Comment>
 			<Identifier>(0x00005fa4, 0x000060c7)</Identifier>
-			<Text>WAP Team -- Oct 16 2013
+			<Text>WAP Team -- May 2023
 WAP Training -- Acquisition with Feedback
 
 &lt;i&gt;Optional:&lt;/i&gt; Record EEG data while simultaneously displaying visual 
