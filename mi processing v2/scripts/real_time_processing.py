@@ -4,7 +4,6 @@ Versão04: Recebe uma entrada do OV, processa e envia uma saída pro OV
 
 '''
 
-
 import numpy as np
 import pickle
 import configparser 

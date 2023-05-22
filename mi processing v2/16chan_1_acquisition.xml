@@ -621,7 +621,7 @@
 					<TypeIdentifier>(0x007deef9, 0x2f3e95c6)</TypeIdentifier>
 					<Name>Number of Trials for Each Class</Name>
 					<DefaultValue>20</DefaultValue>
-					<Value>20</Value>
+					<Value>2</Value>
 					<Modifiability>false</Modifiability>
 				</Setting>
 				<Setting>
@@ -642,7 +642,7 @@
 					<TypeIdentifier>(0x512a166f, 0x5c3ef83f)</TypeIdentifier>
 					<Name>Baseline Duration (in sec)</Name>
 					<DefaultValue>20</DefaultValue>
-					<Value>20</Value>
+					<Value>0</Value>
 					<Modifiability>false</Modifiability>
 				</Setting>
 				<Setting>

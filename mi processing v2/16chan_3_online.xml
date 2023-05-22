@@ -761,7 +761,7 @@
 					<TypeIdentifier>(0xb0d0db45, 0x49cbc34a)</TypeIdentifier>
 					<Name>Lua Script</Name>
 					<DefaultValue></DefaultValue>
-					<Value>C:/Program Files/openvibe-3.4.0-64bit/share/openvibe/scenarios/bci-examples/motor-imagery-CSP/motor-imagery-bci-graz-stimulator.lua</Value>
+					<Value>${Path_Project}/motor-imagery-bci-graz-stimulator.lua</Value>
 					<Modifiability>false</Modifiability>
 				</Setting>
 				<Setting>

@@ -108,8 +108,8 @@ for fold in range(n_folds):
     val_inds         = np.where(np.isin(all_trial_num, val_labels))[0]
 
     # Transform to covariance matrices
-    cov_data_train   = Covariances().transform(data[train_inds])
-    cov_data_val     = Covariances().transform(data[val_inds])
+    cov_data_train   = Covariances('oas').transform(data[train_inds])
+    cov_data_val     = Covariances('oas').transform(data[val_inds])
     
     # Train-validation split
     X_train, y_train = cov_data_train, all_labels[train_inds]
@@ -153,10 +153,10 @@ with open(c_mean_filename, 'wb') as f:
 
 # ------------------------------ MODEL TRAINING ------------------------------#
 # Transform epochs into covariance matrices
-cov_data_train  = Covariances().transform(data)
+cov_data_train  = Covariances('oas').transform(data)
 
 # Project cov matrices to tangential space trhough best_c_mean
-tan_space_train = tangent_space(cov_data_train, best_c_mean)
+tan_space_train = tangent_space(cov_data_train, best_c_mean) 
 
 # Train classifier
 classifier      = LogisticRegression().fit(tan_space_train, all_labels)
