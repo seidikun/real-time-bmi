@@ -8,13 +8,8 @@ class VESTMQTT(mqtt.Client):
     def connectVEST(self):
         self.connect('10.1.1.243', 1883, 600)
         player.initialize()
-        player.register("full_body", "C:\\Users\\Laboratorio\\Desktop\\bHapticsMqtt-main\\full_body_quick_vibration.tact")
-        player.register("lhit", "C:\\Users\\Laboratorio\\Desktop\\bHapticsMqtt-main\\left_hit.tact")
-        player.register("rhit", "C:\\Users\\Laboratorio\\Desktop\\bHapticsMqtt-main\\right_hit.tact")
-        player.register("heart", "C:\\Users\\Laboratorio\\Desktop\\bHapticsMqtt-main\\heart_thump_one_time.tact")
-        player.register("dash", "C:\\Users\\Laboratorio\\Desktop\\bHapticsMqtt-main\\dash.tact")
-        player.register("grass","C:\\Users\Laboratorio\\Desktop\\bHapticsMqtt-main\\GrassSens.tact")
-
+        player.register("lfoot", "C:\Users\seidi\Desktop\real-time-bmi-main\BMI VR Demo\\left_foot.tact")
+        player.register("rfoot", "C:\Users\seidi\Desktop\real-time-bmi-main\BMI VR Demo\\right_foot.tact")
         rc = 0
         while rc == 0:
             rc = self.loop()
@@ -28,18 +23,10 @@ class VESTMQTT(mqtt.Client):
     def on_message(self, mqttc, obj, msg):
         if msg.topic == 'tactic_suit':
             msgDict = json.loads(msg.payload)
-            if msgDict['index'] == 1:
-                player.submit_registered("full_body")
-            elif msgDict['index'] == 2:
-                player.submit_registered("lhit")
+            if msgDict['index'] == 2:
+                player.submit_registered("lfoot")
             elif msgDict['index'] == 3:
-                player.submit_registered("rhit")
-            elif msgDict['index'] == 4:
-                player.submit_registered("heart")
-            elif msgDict['index'] == 5:
-                player.submit_registered("dash")
-            elif msgDict['index'] == 6:
-                player.submit_registered("grass")
+                player.submit_registered("rfoot")
 
             print(msgDict)
 
