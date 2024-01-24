@@ -9,7 +9,7 @@ import configparser
 matplotlib.use('TkAgg')  # Defina o backend para TkAgg
 
 configParser    = configparser.RawConfigParser()
-configFilePath  = r'C:\Users\seidi\Documents\GitHub\real-time-bmi\mi processing v3\config.txt'
+configFilePath = r'C:\Users\Laboratorio\Documents\GitHub\real-time-bmi\mi processing v3\config.txt'
 configParser.read(configFilePath)
 Experiment      = configParser['PARAMETERS']['Experiment']
 Participant     = configParser['PARAMETERS']['Participant']
@@ -17,7 +17,6 @@ Session_nb      = configParser['PARAMETERS']['Session_nb']
 Path_Save       = configParser['PARAMETERS']['Path_Save']
 sess_filename   = Path_Save + Participant + '/' + Experiment + '_' + Participant + '_Sess' + Session_nb
 
-sess_filename   = 'C:/Users/seidi/Desktop/Data/EG102/motor_mi_EG102_online_6d'
 
 # Defina as configurações do broker
 broker_address = "localhost" 
@@ -25,10 +24,14 @@ port           = 1883
 topic          = "PCA_values"
 
 # Abrir os dados do KDE
-with open(sess_filename + '_kde0.pkl', 'rb') as file:
+with open(sess_filename + '_kde0_4class.pkl', 'rb') as file:
     kde0 = pickle.load(file)
-with open(sess_filename + '_kde1.pkl', 'rb') as file:
+with open(sess_filename + '_kde1_4class.pkl', 'rb') as file:
     kde1 = pickle.load(file)
+with open(sess_filename + '_kde2_4class.pkl', 'rb') as file:
+    kde2 = pickle.load(file)
+with open(sess_filename + '_kde3_4class.pkl', 'rb') as file:
+    kde3 = pickle.load(file)
 
 scatter_plot   = None
 classification_text = None
@@ -49,7 +52,6 @@ def on_message(client, userdata, msg):
     
 # Função para atualizar o scatter plot no thread principal
 def update_plot(ax, x, y, label):
-    print(label)
     global scatter_plot, classification_text
     if scatter_plot is None:
         scatter_plot = ax.scatter(x, y, label='Data Points', color='black', s = 200)
@@ -59,7 +61,7 @@ def update_plot(ax, x, y, label):
     # Atualiza o texto de classificação
     classification = 'Mão Esquerda' if int(label) == 0 else 'Mão Direita'
     if classification_text is None:
-        classification_text = ax.text(0.5, 1.01, classification, ha='center', va='bottom', transform=ax.transAxes, fontsize=24)
+        classification_text = ax.text(0.5, 0.5, classification, ha='center', transform=ax.transAxes, fontsize=30)
     else:
         classification_text.set_text(classification)
         
@@ -74,20 +76,25 @@ def mqtt_thread():
 # Cria um gráfico scatter plot vazio
 plt.ion()
 fig, ax = plt.subplots()
-ax.set_xlim(-3,3)
-ax.set_ylim(-3,3)
+fig.subplots_adjust(left=0, right=1, bottom=0, top=1)
 ax.set_axis_off()  
 x_min, x_max = -3, 3  
 y_min, y_max = -3, 3  
+ax.set_xlim(x_min,x_max)
+ax.set_ylim(y_min,y_max)
 xx, yy       = np.meshgrid(np.linspace(x_min, x_max, 100), np.linspace(y_min, y_max, 100))
 
 # Calcular as densidades no grid
 zz0          = kde0(np.vstack([xx.ravel(), yy.ravel()]))
 zz1          = kde1(np.vstack([xx.ravel(), yy.ravel()]))
+zz2          = kde2(np.vstack([xx.ravel(), yy.ravel()]))
+zz3          = kde3(np.vstack([xx.ravel(), yy.ravel()]))
 
 # Plotar as curvas de densidade
 contour0     = ax.contourf(xx, yy, zz0.reshape(xx.shape), alpha=0.5, cmap='Blues')
 contour1     = ax.contourf(xx, yy, zz1.reshape(xx.shape), alpha=0.5, cmap='Reds')
+contour2     = ax.contourf(xx, yy, zz1.reshape(xx.shape), alpha=0.5, cmap='Oranges')
+contour3     = ax.contourf(xx, yy, zz1.reshape(xx.shape), alpha=0.5, cmap='Greys')
 
 # Cria e inicia o thread MQTT
 mqtt_thread        = threading.Thread(target=mqtt_thread)

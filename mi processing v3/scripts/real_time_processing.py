@@ -9,11 +9,6 @@ import pickle
 import configparser 
 from pyriemann.estimation          import Covariances
 from pyriemann.tangentspace        import tangent_space
-import matplotlib.pyplot as plt
-from IPython import display
-import time
-import random
-
 
 class MyOVBox(OVBox):
     def __init__(self):
@@ -50,7 +45,7 @@ class MyOVBox(OVBox):
         self.nProc               = 0
         
         configParser = configparser.RawConfigParser()
-        configFilePath = r'C:\Users\seidi\Documents\GitHub\real-time-bmi\mi processing v2\config.txt'
+        configFilePath = r'C:\Users\Laboratorio\Documents\GitHub\real-time-bmi\mi processing v3\config.txt'
         configParser.read(configFilePath)
 
         Experiment      = configParser['PARAMETERS']['Experiment']
@@ -58,12 +53,9 @@ class MyOVBox(OVBox):
         Session_nb      = configParser['PARAMETERS']['Session_nb']
         Path_Save       = configParser['PARAMETERS']['Path_Save']
         sess_filename   = Path_Save + Participant + '/' + Experiment + '_' + Participant + '_Sess' + Session_nb
-        
-        
-        sess_filename =  'C:/Users/seidi/Desktop/Data/EG102/motor_mi_EG102_online_6d'
         class_filename  = sess_filename + '_classifier.pkl'
         c_mean_filename = sess_filename + '_best_c_mean.pkl'
-        pca_filename = sess_filename + '_pca.pkl'
+        pca_filename    = sess_filename + '_pca.pkl'
         
         with open(c_mean_filename, 'rb') as f: 
             self.best_c_mean = pickle.load(f)
@@ -124,6 +116,7 @@ class MyOVBox(OVBox):
 
         # saída = quadrado da entrada
         self.npBufferOUT = self.npBufferIN[np.newaxis, ...]
+        print(self.npBufferOUT.shape)
         cov              = Covariances('oas').transform(self.npBufferOUT)
         tan_space_cov    = tangent_space(cov, self.best_c_mean)
         

@@ -1,12 +1,6 @@
 [PARAMETERS]
-Experiment   = BMI_VR
-Participant  = Seidi
+Experiment   = RIEMANN_PCA
+Participant  = SY100
 Session_nb   = 1
-Path_Project = C:/Users/seidi/Documents/GitHub/real-time-bmi/
-Path_Save    = C:/Users/seidi/Documents/GitHub/real-time-bmi/test_data/
-
-
-
-
-
-
+Path_Project = C:/Users/Laboratorio/Documents/GitHub/real-time-bmi/
+Path_Save    = C:/Users/Laboratorio/Desktop/Dados/
