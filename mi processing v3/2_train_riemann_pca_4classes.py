@@ -206,7 +206,7 @@ clf.fit(X_pca, labels)
 # Calculando a densidade de KDE para cada classe
 x_min, x_max = X_pca[:, 0].min() - 1, X_pca[:, 0].max() + 1
 y_min, y_max = X_pca[:, 1].min() - 1, X_pca[:, 1].max() + 1
-xx, yy = np.meshgrid(np.linspace(x_min, x_max, 100), np.linspace(y_min, y_max, 100))
+xx, yy = np.meshgrid(np.linspace(x_min, x_max, 200), np.linspace(y_min, y_max, 200))
 
 kde0 = gaussian_kde(X_pca[labels == label_left_].T)
 kde1 = gaussian_kde(X_pca[labels == label_right_].T)
@@ -230,7 +230,7 @@ Z = clf.predict(np.c_[xx.ravel(), yy.ravel()])
 Z = Z.reshape(xx.shape)
 plt.contour(xx, yy, Z, colors='k', levels=[-1, 0, 1], alpha=0.5, linestyles=['--', '-', '--'])
 
-# plt.scatter(X_pca[:, 0], X_pca[:, 1], c=labels, s=30, cmap=plt.cm.bwr, edgecolors='k')
+plt.scatter(X_pca[:, 0], X_pca[:, 1], c=labels, s=30, cmap=plt.cm.bwr, edgecolors='k')
 plt.xlabel('PCA Feature 1')
 plt.ylabel('PCA Feature 2')
 plt.title('SVC Decision Boundary with PCA and KDE')
