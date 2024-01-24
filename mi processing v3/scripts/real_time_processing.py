@@ -15,9 +15,6 @@ import time
 import random
 
 
-
-
-
 class MyOVBox(OVBox):
     def __init__(self):
         OVBox.__init__(self)
@@ -52,14 +49,6 @@ class MyOVBox(OVBox):
         # contador de processamentos
         self.nProc               = 0
         
-        # Configurações iniciais do gráfico
-        plt.ion()
-        self.fig, self.ax = plt.subplots()
-        self.ax.set_xlim(0, 10)
-        self.ax.set_ylim(0, 10)
-        self.scatter_plot, = self.ax.plot([], [], 'o')  # Inicializa um gráfico de dispersão
-
-
         configParser = configparser.RawConfigParser()
         configFilePath = r'C:\Users\seidi\Documents\GitHub\real-time-bmi\mi processing v2\config.txt'
         configParser.read(configFilePath)
@@ -69,14 +58,19 @@ class MyOVBox(OVBox):
         Session_nb      = configParser['PARAMETERS']['Session_nb']
         Path_Save       = configParser['PARAMETERS']['Path_Save']
         sess_filename   = Path_Save + Participant + '/' + Experiment + '_' + Participant + '_Sess' + Session_nb
-        class_filename  = sess_filename + '_lda.pkl'
+        
+        
+        sess_filename =  'C:/Users/seidi/Desktop/Data/EG102/motor_mi_EG102_online_6d'
+        class_filename  = sess_filename + '_classifier.pkl'
         c_mean_filename = sess_filename + '_best_c_mean.pkl'
+        pca_filename = sess_filename + '_pca.pkl'
         
         with open(c_mean_filename, 'rb') as f: 
             self.best_c_mean = pickle.load(f)
-        
         with open(class_filename, 'rb') as f: 
-            self.lda = pickle.load(f)
+            self.clf = pickle.load(f)
+        with open(pca_filename,   'rb') as file:
+            self.pca = pickle.load(file)
 
     def initialize(self):
         # definido o signalBufferIN pra não dar pau nas primeiras iterações de self.process()
@@ -112,7 +106,7 @@ class MyOVBox(OVBox):
         self.timeBuffer = np.arange(self.startTime, self.endTime, 1./self.samplingIN)
 
     def makeInfosOUT(self):
-        self.nChannelOUT         = 2
+        self.nChannelOUT         = 3
         self.epochSampleCountOUT = 1
         self.samplingOUT         = self.samplingIN
 
@@ -139,30 +133,16 @@ class MyOVBox(OVBox):
             self.nProc += 1
 
         # Formata buffer de saída e envia
-        start = self.timeBuffer[0]
-        end   = self.timeBuffer[-1] + 1./self.samplingOUT
+        start      = self.timeBuffer[0]
+        end        = self.timeBuffer[-1] + 1./self.samplingOUT
+        X_pca      = self.pca.transform(tan_space_cov)
+        prediction = self.clf.predict(X_pca)
         
-        bufferElements = self.lda.predict_proba(tan_space_cov)[0]
-        output_predict = [bufferElements[-1] - bufferElements[0]]
-        print(output_predict)
-        
-        if output_predict[0] > 0:
-          out = [0, bufferElements[-1]]
-        elif output_predict[0] < 0:
-          out = [bufferElements[0], 0]
-        elif output_predict[0] == 0:
-           out = [0, 0]
+        out = [X_pca[0][0], X_pca[0][1], prediction[0]]
+        print(out)
         
         self.output[0].append(OVSignalBuffer(start, end, out))
         
-
-        # Atualizar gráfico
-        self.scatter_plot.set_data(random.random() * 10, random.random() * 10)
-    
-        # Redesenhar e pausar para atualização
-        self.fig.canvas.draw()
-        self.fig.canvas.flush_events()
-        plt.pause(0.0001)
 
     def process(self):
 

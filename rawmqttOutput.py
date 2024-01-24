@@ -30,6 +30,7 @@ class MyOVBox(OVBox):
 		for chunkIdx in range( len(self.input[0]) ):
 			chunk = self.input[0].pop()
 			client.publish(self.topic,str(chunk).replace('[','').replace(']',''))
+			print(str(chunk))
 		return
 		
 	def uninitialize(self):
