@@ -50,9 +50,10 @@ class MyOVBox(OVBox):
 
         Experiment      = configParser['PARAMETERS']['Experiment']
         Participant     = configParser['PARAMETERS']['Participant']
+        type_classes    = configParser['PARAMETERS']['type_classes']
         Session_nb      = configParser['PARAMETERS']['Session_nb']
         Path_Save       = configParser['PARAMETERS']['Path_Save']
-        sess_filename   = Path_Save + Participant + '/' + Experiment + '_' + Participant + '_Sess' + Session_nb
+        sess_filename   = Path_Save + Participant + '/' + Experiment + '_' + type_classes +  '_' + Participant + '_Sess' + Session_nb
         class_filename  = sess_filename + '_classifier.pkl'
         c_mean_filename = sess_filename + '_best_c_mean.pkl'
         pca_filename    = sess_filename + '_pca.pkl'

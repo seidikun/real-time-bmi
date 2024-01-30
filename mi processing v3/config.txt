@@ -1,5 +1,6 @@
 [PARAMETERS]
 Experiment   = RIEMANN_PCA
+type_classes = 4classes
 Participant  = SY100
 Session_nb   = 1
 Path_Project = C:/Users/Laboratorio/Documents/GitHub/real-time-bmi/

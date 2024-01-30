@@ -442,7 +442,7 @@
 					<TypeIdentifier>(0x330306dd, 0x74a95f98)</TypeIdentifier>
 					<Name>Filename</Name>
 					<DefaultValue>record-[$core{date}-$core{time}].csv</DefaultValue>
-					<Value>${Path_Save}/${Experiment}_${Participant}_Sess${Session_nb}.csv</Value>
+					<Value>${Path_Save}/${Experiment}_2classes_${Participant}_Sess${Session_nb}.csv</Value>
 					<Modifiability>false</Modifiability>
 				</Setting>
 				<Setting>
