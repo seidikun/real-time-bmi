@@ -335,58 +335,6 @@
 			</Attributes>
 		</Box>
 		<Box>
-			<Identifier>(0x000055ed, 0x00000af7)</Identifier>
-			<Name>Signal Decimation</Name>
-			<AlgorithmClassIdentifier>(0x012f4bea, 0x3be37c66)</AlgorithmClassIdentifier>
-			<Inputs>
-				<Input>
-					<TypeIdentifier>(0x5ba36127, 0x195feae1)</TypeIdentifier>
-					<Name>Input signal</Name>
-				</Input>
-			</Inputs>
-			<Outputs>
-				<Output>
-					<TypeIdentifier>(0x5ba36127, 0x195feae1)</TypeIdentifier>
-					<Name>Output signal</Name>
-				</Output>
-			</Outputs>
-			<Settings>
-				<Setting>
-					<TypeIdentifier>(0x007deef9, 0x2f3e95c6)</TypeIdentifier>
-					<Name>Decimation factor</Name>
-					<DefaultValue>8</DefaultValue>
-					<Value>4</Value>
-					<Modifiability>false</Modifiability>
-				</Setting>
-			</Settings>
-			<Attributes>
-				<Attribute>
-					<Identifier>(0x1fa7a38f, 0x54edbe0b)</Identifier>
-					<Value>-336</Value>
-				</Attribute>
-				<Attribute>
-					<Identifier>(0x207c9054, 0x3c841b63)</Identifier>
-					<Value>720</Value>
-				</Attribute>
-				<Attribute>
-					<Identifier>(0x4e7b798a, 0x183beafb)</Identifier>
-					<Value>(0x5082af41, 0xd0fbf4cb)</Value>
-				</Attribute>
-				<Attribute>
-					<Identifier>(0xc80ce8af, 0xf699f813)</Identifier>
-					<Value>1</Value>
-				</Attribute>
-				<Attribute>
-					<Identifier>(0xce18836a, 0x9c0eb403)</Identifier>
-					<Value>1</Value>
-				</Attribute>
-				<Attribute>
-					<Identifier>(0xcfad85b0, 0x7c6d841c)</Identifier>
-					<Value>1</Value>
-				</Attribute>
-			</Attributes>
-		</Box>
-		<Box>
 			<Identifier>(0x00006593, 0x00001e93)</Identifier>
 			<Name>Raw MQTTT Output</Name>
 			<AlgorithmClassIdentifier>(0x5dc4f669, 0xd3fd4d63)</AlgorithmClassIdentifier>
@@ -782,7 +730,7 @@
 					<TypeIdentifier>(0x512a166f, 0x5c3ef83f)</TypeIdentifier>
 					<Name>Low Cut-off Frequency (Hz)</Name>
 					<DefaultValue>1</DefaultValue>
-					<Value>8</Value>
+					<Value>1</Value>
 					<Modifiability>false</Modifiability>
 				</Setting>
 				<Setting>
@@ -1043,17 +991,6 @@
 			</Target>
 		</Link>
 		<Link>
-			<Identifier>(0x000016be, 0x00001c6e)</Identifier>
-			<Source>
-				<BoxIdentifier>(0x00003af3, 0x000028d9)</BoxIdentifier>
-				<BoxOutputIndex>0</BoxOutputIndex>
-			</Source>
-			<Target>
-				<BoxIdentifier>(0x000055ed, 0x00000af7)</BoxIdentifier>
-				<BoxInputIndex>0</BoxInputIndex>
-			</Target>
-		</Link>
-		<Link>
 			<Identifier>(0x000017e0, 0x0000131f)</Identifier>
 			<Source>
 				<BoxIdentifier>(0x00006ea1, 0x00004c67)</BoxIdentifier>
@@ -1098,6 +1035,17 @@
 			</Target>
 		</Link>
 		<Link>
+			<Identifier>(0x00003875, 0x0000351b)</Identifier>
+			<Source>
+				<BoxIdentifier>(0x00003af3, 0x000028d9)</BoxIdentifier>
+				<BoxOutputIndex>0</BoxOutputIndex>
+			</Source>
+			<Target>
+				<BoxIdentifier>(0x00006e8e, 0x00000334)</BoxIdentifier>
+				<BoxInputIndex>0</BoxInputIndex>
+			</Target>
+		</Link>
+		<Link>
 			<Identifier>(0x00004205, 0x000003f2)</Identifier>
 			<Source>
 				<BoxIdentifier>(0x00003af3, 0x000028d9)</BoxIdentifier>
@@ -1105,17 +1053,6 @@
 			</Source>
 			<Target>
 				<BoxIdentifier>(0x00001328, 0x000011eb)</BoxIdentifier>
-				<BoxInputIndex>0</BoxInputIndex>
-			</Target>
-		</Link>
-		<Link>
-			<Identifier>(0x000065e0, 0x000054d9)</Identifier>
-			<Source>
-				<BoxIdentifier>(0x000055ed, 0x00000af7)</BoxIdentifier>
-				<BoxOutputIndex>0</BoxOutputIndex>
-			</Source>
-			<Target>
-				<BoxIdentifier>(0x00006e8e, 0x00000334)</BoxIdentifier>
 				<BoxInputIndex>0</BoxInputIndex>
 			</Target>
 		</Link>

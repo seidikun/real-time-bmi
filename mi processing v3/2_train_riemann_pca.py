@@ -13,7 +13,7 @@ import pickle
 import random
 
 configParser    = configparser.RawConfigParser()
-configFilePath  = r'C:\Users\Laboratorio\Documents\GitHub\real-time-bmi\mi processing v3\config.txt'
+configFilePath  = r'C:/Users/seidi/Documents/GitHub/real-time-bmi/mi processing v3/config.txt'
 configParser.read(configFilePath)
 Experiment      = configParser['PARAMETERS']['Experiment']
 type_classes    = configParser['PARAMETERS']['type_classes']
@@ -30,7 +30,7 @@ columns      = ['Channel ' + str(i) for i in  range(1,17)]
 filename     = sess_filename + '.csv'
 df_me        = pd.read_csv(filename, low_memory=False)
 event_id     = pd.to_numeric(df_me['Event Id'], errors='coerce').fillna(0).astype(np.int64)
-epoch_size   = 1   # s
+epoch_size   = 2   # s
 overlap_step = 0.1 # s
 
 if type_classes == '2classes':
@@ -65,7 +65,7 @@ elif type_classes == '4classes':
 def data_preparation(data_eeg, a, b, columns, dict_inds, dict_labels, epoch_size, overlap_step):
   # Define parâmetros
   max_trial_t  = 3.75 # tamanho máximo de uma janela de tentativa
-  trange        = np.arange(int(Fs*0.5),int(Fs*(0.5 + epoch_size)))
+  trange        = np.arange(int(Fs*0.5),int(Fs*(0.5 + epoch_size)),4)
 
   # Loop pelas janelas
   first_pass = True
@@ -244,6 +244,9 @@ else:
     with open(sess_filename + '_kde.pkl', 'wb') as file:
         pickle.dump(dict_kde, file)
 
+with open(sess_filename + '_range_pca.pkl', 'wb') as f:
+    pickle.dump((x_min, x_max, y_min, y_max), f)
+    
 with open(sess_filename + '_best_c_mean.pkl', 'wb') as f: 
     pickle.dump(best_c_mean, f)
     

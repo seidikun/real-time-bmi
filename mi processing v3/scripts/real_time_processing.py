@@ -45,7 +45,7 @@ class MyOVBox(OVBox):
         self.nProc               = 0
         
         configParser = configparser.RawConfigParser()
-        configFilePath = r'C:\Users\Laboratorio\Documents\GitHub\real-time-bmi\mi processing v3\config.txt'
+        configFilePath  = r'C:/Users/seidi/Documents/GitHub/real-time-bmi/mi processing v3/config.txt'
         configParser.read(configFilePath)
 
         Experiment      = configParser['PARAMETERS']['Experiment']
