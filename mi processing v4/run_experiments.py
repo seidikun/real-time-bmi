@@ -1,8 +1,9 @@
 import subprocess
 import os
 import csv
+import re
 from datetime import datetime
-# import train_riemann_pca as train_pca
+import train_riemann_pca as train_pca
 
 # Função para verificar se o registro já existe
 def check_record_exists(filepath, dict_exp):
@@ -72,11 +73,11 @@ env_online_riemann = project_path + '/Online.xml'
 
 # Definir a sequência de blocos do experimento
 blocks = [
-    ('monitoring',             env_monitoring,   0),
+    # ('monitoring',             env_monitoring,   0),
     # ('baseline_open_eyes',     env_free,1),
     # ('baseline_closed_eyes'   ,env_free,1),
     # ('screening_2_classes_mi', env_screen_2class,1),
-    # ('online'   , env_online_riemann,1),
+    ('online'   , env_online_riemann,1),
     # ('screening_4_classes_me', env_screen_4class,1),
     # ('online',    env_online_riemann,1),
     # ('screening_4_classes_mi', env_screen_4class,1),
@@ -117,21 +118,22 @@ def select_data_to_train(data_path, experiment, participant, session):
     # Lista todos os arquivos no diretório
     all_files = os.listdir(full_path)
     
-    # Filtra os arquivos que contêm as substrings necessárias
-    filtered_files = [file for file in all_files if experiment in file and 'screening' in file and 'Sess' + session in file]
+    # Expressão regular para encontrar o padrão desejado
+    padrao = r'(\w+_screening_\w+_Run\d+)'
     
-    # Processa os nomes dos arquivos para retornar apenas até 'Sess' + session
-    processed_files = set()
-    for file in filtered_files:
-        # Encontra o índice onde 'Sess' + session termina
-        end_index = file.find('Sess' + session) + len('Sess' + session)
-        # Extrai a substring do arquivo até esse índice
-        processed_file = file[:end_index]
-        # Adiciona ao conjunto para garantir unicidade
-        processed_files.add(processed_file)
+    # Lista para armazenar as nomeações únicas encontradas
+    nomeacoes_unicas = []
+    
+    # Iterar sobre os arquivos e extrair as nomeações únicas
+    for arquivo in all_files:
+        match = re.search(padrao, arquivo)
+        if match:
+            nomeacao = match.group(1)
+            if nomeacao not in nomeacoes_unicas:
+                nomeacoes_unicas.append(nomeacao)
     
     # Converte o conjunto de volta para uma lista para retornar
-    return list(processed_files)
+    return nomeacoes_unicas
     
 
 for block_name, block_path, save_entry in blocks:
@@ -181,7 +183,7 @@ for block_name, block_path, save_entry in blocks:
             for i, exp in enumerate(list_train, 1):
                 print(f"{i}. {exp}")
             data_choice  = int(input("Digite o número do dado: ")) - 1
-            data_train   = list_train[data_choice]
+            data_train   = data_path + participant + '/' +  list_train[data_choice]
             run_online(openvibe_designer_path, block_path, filename_csv, current_data, logbook_filename, data_train)
 
 

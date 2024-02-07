@@ -44,8 +44,15 @@ class MyOVBox(OVBox):
         # contador de processamentos
         self.nProc               = 0
         
-        sess_filename  = self.setting['data_train']
-        print(sess_filename)
+
+    def initialize(self):
+    
+        # definido o signalBufferIN pra não dar pau nas primeiras iterações de self.process()
+        self.signalBufferIN      = np.zeros((1, 1))
+        # definido o signalsignalHeaderIN pra não dar pau nas primeiras iterações de self.process()
+        self.signalHeaderIN      = OVSignalHeader(0., 0., [1, 1], [1, 1], 1)
+        
+        sess_filename   = self.setting['data_train']
         class_filename  = sess_filename + '_classifier.pkl'
         c_mean_filename = sess_filename + '_best_c_mean.pkl'
         pca_filename    = sess_filename + '_pca.pkl'
@@ -58,18 +65,6 @@ class MyOVBox(OVBox):
             self.pca = pickle.load(file)
         pass
 
-        
-
-    def initialize(self):
-        # definido o signalBufferIN pra não dar pau nas primeiras iterações de self.process()
-        self.signalBufferIN      = np.zeros((1, 1))
-        # definido o signalsignalHeaderIN pra não dar pau nas primeiras iterações de self.process()
-        self.signalHeaderIN      = OVSignalHeader(0., 0., [1, 1], [1, 1], 1)
-        
-        configParser = configparser.RawConfigParser()
-        configFilePath  = r'C:/Users/seidi/Documents/GitHub/real-time-bmi/mi processing v3/config.txt'
-        configParser.read(configFilePath)
-        
 
     def getInfosIN(self):
         self.samplingIN          = self.signalHeaderIN.samplingRate
@@ -116,7 +111,6 @@ class MyOVBox(OVBox):
 
         # saída = quadrado da entrada
         self.npBufferOUT = self.npBufferIN[np.newaxis, ...]
-        print(self.npBufferOUT.shape)
         cov              = Covariances('oas').transform(self.npBufferOUT)
         tan_space_cov    = tangent_space(cov, self.best_c_mean)
         
