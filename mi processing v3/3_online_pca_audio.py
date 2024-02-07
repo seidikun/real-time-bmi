@@ -8,7 +8,7 @@ import configparser
 import pickle
 
 configParser    = configparser.RawConfigParser()
-configFilePath  = r'C:/Users/seidi/Documents/GitHub/real-time-bmi/mi processing v3/config.txt'
+configFilePath  = r'C:/Users/Laboratorio/Documents/GitHub/real-time-bmi/mi processing v3/config.txt'
 configParser.read(configFilePath)
 Experiment      = configParser['PARAMETERS']['Experiment']
 type_classes    = configParser['PARAMETERS']['type_classes']
@@ -75,7 +75,7 @@ class AudioThread(threading.Thread):
                 amplitude_left     = self.calculate_amplitude(position, left_ear_position)
                 amplitude_right    = self.calculate_amplitude(position, right_ear_position)
 
-                frequency = map_value(position[1], y_min, y_max, 50, 300)
+                frequency = map_value(position[1], y_min, y_max, 50, 400)
                 tone = generate_tone(frequency, 0.12, self.fs)
                 print(frequency, amplitude_left, amplitude_right)
 

@@ -12,16 +12,6 @@ import configparser
 import pickle
 import random
 
-configParser    = configparser.RawConfigParser()
-configFilePath  = r'C:/Users/seidi/Documents/GitHub/real-time-bmi/mi processing v3/config.txt'
-configParser.read(configFilePath)
-Experiment      = configParser['PARAMETERS']['Experiment']
-type_classes    = configParser['PARAMETERS']['type_classes']
-Participant     = configParser['PARAMETERS']['Participant']
-Session_nb      = configParser['PARAMETERS']['Session_nb']
-Path_Save       = configParser['PARAMETERS']['Path_Save']
-sess_filename   = Path_Save + Participant + '/' + Experiment + '_' + type_classes + '_' + Participant + '_Sess' + Session_nb
-
 
 def data_preparation(data_eeg, a, b, columns, dict_inds, dict_labels, Fs, epoch_size, overlap_step):
   # Define parâmetros

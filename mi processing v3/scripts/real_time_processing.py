@@ -45,7 +45,7 @@ class MyOVBox(OVBox):
         self.nProc               = 0
         
         configParser = configparser.RawConfigParser()
-        configFilePath  = r'C:/Users/seidi/Documents/GitHub/real-time-bmi/mi processing v3/config.txt'
+        configFilePath  = r'C:/Users/Laboratorio/Documents/GitHub/real-time-bmi/mi processing v3/config.txt'
         configParser.read(configFilePath)
 
         Experiment      = configParser['PARAMETERS']['Experiment']
@@ -54,14 +54,14 @@ class MyOVBox(OVBox):
         Session_nb      = configParser['PARAMETERS']['Session_nb']
         Path_Save       = configParser['PARAMETERS']['Path_Save']
         sess_filename   = Path_Save + Participant + '/' + Experiment + '_' + type_classes +  '_' + Participant + '_Sess' + Session_nb
-        class_filename  = sess_filename + '_classifier.pkl'
+        # class_filename  = sess_filename + '_classifier.pkl'
         c_mean_filename = sess_filename + '_best_c_mean.pkl'
         pca_filename    = sess_filename + '_pca.pkl'
         
         with open(c_mean_filename, 'rb') as f: 
             self.best_c_mean = pickle.load(f)
-        with open(class_filename, 'rb') as f: 
-            self.clf = pickle.load(f)
+        # with open(class_filename, 'rb') as f: 
+        #     self.clf = pickle.load(f)
         with open(pca_filename,   'rb') as file:
             self.pca = pickle.load(file)
 
@@ -126,14 +126,14 @@ class MyOVBox(OVBox):
             self.makeInfosOUT()
             self.nProc += 1
 
-        # Formata buffer de saída e envia
+        # # Formata buffer de saída e envia
         start      = self.timeBuffer[0]
         end        = self.timeBuffer[-1] + 1./self.samplingOUT
         X_pca      = self.pca.transform(tan_space_cov)
-        prediction = self.clf.predict(X_pca)
+        # prediction = self.clf.predict(X_pca)
         
-        out = [X_pca[0][0], X_pca[0][1], prediction[0]]
-        print(out)
+        out = [X_pca[0][0], X_pca[0][1],1]
+        # print(out)
         
         self.output[0].append(OVSignalBuffer(start, end, out))
         

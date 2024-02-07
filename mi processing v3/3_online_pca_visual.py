@@ -8,7 +8,7 @@ import configparser
 matplotlib.use('TkAgg')  # Defina o backend para TkAgg
 
 configParser    = configparser.RawConfigParser()
-configFilePath  = r'C:/Users/seidi/Documents/GitHub/real-time-bmi/mi processing v3/config.txt'
+configFilePath  = r'C:/Users/Laboratorio/Documents/GitHub/real-time-bmi/mi processing v3/config.txt'
 configParser.read(configFilePath)
 Experiment      = configParser['PARAMETERS']['Experiment']
 type_classes    = configParser['PARAMETERS']['type_classes']

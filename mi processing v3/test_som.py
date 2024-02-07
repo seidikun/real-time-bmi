@@ -1,12 +1,7 @@
-import numpy as np
-import pyaudio
-import threading
-from threading import Thread
 import time
 import paho.mqtt.client as mqtt
 import configparser
 import pickle
-import time
 import math
 
 def elliptical_points(a, b, h, k, angle_step, duration):
@@ -29,7 +24,7 @@ def on_connect(client, userdata, flags, rc):
         print("Failed to connect, return code %d\n", rc)
 
 configParser    = configparser.RawConfigParser()
-configFilePath  = r'C:/Users/seidi/Documents/GitHub/real-time-bmi/mi processing v3/config.txt'
+configFilePath  = r'C:/Users/Laboratorio/Documents/GitHub/real-time-bmi/mi processing v3/config.txt'
 configParser.read(configFilePath)
 Experiment      = configParser['PARAMETERS']['Experiment']
 type_classes    = configParser['PARAMETERS']['type_classes']
@@ -62,7 +57,7 @@ client.loop_start()
 
 try:
     # A duração é definida aqui como 10 segundos
-    duration = 100
+    duration = 1000
     for x, y in elliptical_points(a, b, h, k, 2 * math.pi / 512, duration):
         message = str(x) + ',' + str(y) + ',1' 
         client.publish(topic, message)

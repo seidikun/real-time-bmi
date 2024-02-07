@@ -13,7 +13,7 @@ import pickle
 import random
 
 configParser    = configparser.RawConfigParser()
-configFilePath  = r'C:/Users/seidi/Documents/GitHub/real-time-bmi/mi processing v3/config.txt'
+configFilePath  = r'C:/Users/Laboratorio/Documents/GitHub/real-time-bmi/mi processing v3/config.txt'
 configParser.read(configFilePath)
 Experiment      = configParser['PARAMETERS']['Experiment']
 type_classes    = configParser['PARAMETERS']['type_classes']
@@ -30,7 +30,7 @@ columns      = ['Channel ' + str(i) for i in  range(1,17)]
 filename     = sess_filename + '.csv'
 df_me        = pd.read_csv(filename, low_memory=False)
 event_id     = pd.to_numeric(df_me['Event Id'], errors='coerce').fillna(0).astype(np.int64)
-epoch_size   = 2   # s
+epoch_size   = 1   # s
 overlap_step = 0.1 # s
 
 if type_classes == '2classes':

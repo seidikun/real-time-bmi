@@ -2,7 +2,7 @@ import subprocess
 import os
 import csv
 from datetime import datetime
-import train_riemann_pca as train_pca
+# import train_riemann_pca as train_pca
 
 # Função para verificar se o registro já existe
 def check_record_exists(filepath, dict_exp):
@@ -35,28 +35,28 @@ def add_record(filepath, search_data):
         print(f"Erro ao escrever no arquivo {filepath}: {e}")
 
 # Variáveis globais
-project_path           = os.path.dirname(os.path.realpath(__file__)).replace("\\", "/")
+project_path           = 'C:/Users/Laboratorio/Documents/GitHub/real-time-bmi/mi processing v4'
 computer_name          = os.environ['COMPUTERNAME']
 openvibe_designer_path = r'C:/Program Files/openvibe-3.5.0-64bit/openvibe-designer.cmd'
-data_path              = 'C:/Users/seidi/Desktop/Data/'
+data_path              = 'D:/Seidi/'
 experiments            = ['RIEMANN_LDA']
 participantes          = ['SY100', 'TEST']
 logbook_filename       = project_path + '/logbook.csv'
 
-# Lista de experimentos disponíveis
+# Configurando sessão atual
 print("Escolha um experimento:")
 for i, exp in enumerate(experiments, 1):
     print(f"{i}. {exp}")
-experiment_choice  = int(input("Digite o número do experimento: ")) - 1
-experiment         = experiments[experiment_choice]
+experiment_choice     = int(input("Digite o número do experimento: ")) - 1
+experiment            = experiments[experiment_choice]
 
 print("\nEscolha um participante:")
 for i, pat in enumerate(participantes, 1):
     print(f"{i}. {pat}")
-participant_choice = int(input("Digite o número do participante: ")) - 1
-participant        = participantes[participant_choice]
+participant_choice    = int(input("Digite o número do participante: ")) - 1
+participant           = participantes[participant_choice]
 
-session            = input("\nDigite o número da sessão: ")
+session               = input("\nDigite o número da sessão: ")
 
 print('\nVocê escolheu as seguintes configurações:')
 print('EXPERIMENTO: ', experiment)
@@ -72,11 +72,11 @@ env_online_riemann = project_path + '/Online.xml'
 
 # Definir a sequência de blocos do experimento
 blocks = [
-    # ('monitoring',             env_monitoring,   0),
+    ('monitoring',             env_monitoring,   0),
     # ('baseline_open_eyes',     env_free,1),
     # ('baseline_closed_eyes'   ,env_free,1),
-    ('screening_2_classes_mi', env_screen_2class,1),
-    ('online'   , env_online_riemann,1),
+    # ('screening_2_classes_mi', env_screen_2class,1),
+    # ('online'   , env_online_riemann,1),
     # ('screening_4_classes_me', env_screen_4class,1),
     # ('online',    env_online_riemann,1),
     # ('screening_4_classes_mi', env_screen_4class,1),
@@ -104,7 +104,7 @@ def run_basic(openvibe_designer_path, block_path, filename_csv, current_data, lo
 def run_online(openvibe_designer_path, block_path, filename_csv, current_data, logbook_filename, data_train):
         add_record(logbook_filename, current_data)
         # Construir e executar o comando
-        command = f'"{openvibe_designer_path}" --play "{block_path}" --define Filename {filename_csv} data_train'
+        command = f'"{openvibe_designer_path}" --play "{block_path}" --define Filename {filename_csv} --define data_train {data_train}'
         subprocess.Popen(command, shell=True)
         
         # Espera o usuário teclar Enter após a finalização do bloco
