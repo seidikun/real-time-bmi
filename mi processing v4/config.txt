@@ -1,7 +1,0 @@
-[PARAMETERS]
-Experiment   = RIEMANN_PCA
-type_classes = 2classes
-Participant  = TEST
-Session_nb   = 1
-Path_Project = C:/Users/seidi/Documents/GitHub/real-time-bmi/
-Path_Save    = C:/Users/seidi/Desktop/Data/

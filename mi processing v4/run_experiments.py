@@ -4,6 +4,7 @@ import csv
 import re
 from datetime import datetime
 import train_riemann_pca as train_pca
+from  online_visual_new import run_visualization
 
 # Função para verificar se o registro já existe
 def check_record_exists(filepath, dict_exp):
@@ -41,7 +42,7 @@ computer_name          = os.environ['COMPUTERNAME']
 openvibe_designer_path = r'C:/Program Files/openvibe-3.5.0-64bit/openvibe-designer.cmd'
 data_path              = 'D:/Seidi/'
 experiments            = ['RIEMANN_LDA']
-participantes          = ['SY100', 'TEST']
+participantes          = ['SY100','CG111','TEST']
 logbook_filename       = project_path + '/logbook.csv'
 
 # Configurando sessão atual
@@ -67,7 +68,7 @@ print('SESSÃO:      ', session)
 # Caminhos dos ambientes de experimento
 env_monitoring     = project_path + '/Monitoring.xml'
 env_free           = project_path + '/Acquisition_Free.xml'
-env_screen_2class  = project_path + '/Acquisition_2_classes_test.xml'
+env_screen_2class  = project_path + '/Acquisition_2_classes.xml'
 env_screen_4class  = project_path + '/Acquisition_4_classes.xml'
 env_online_riemann = project_path + '/Online.xml'
 
@@ -77,11 +78,11 @@ blocks = [
     # ('baseline_open_eyes',     env_free,1),
     # ('baseline_closed_eyes'   ,env_free,1),
     # ('screening_2_classes_mi', env_screen_2class,1),
-    ('online'   , env_online_riemann,1),
+    # ('online'   , env_online_riemann,1),
     # ('screening_4_classes_me', env_screen_4class,1),
-    # ('online',    env_online_riemann,1),
-    # ('screening_4_classes_mi', env_screen_4class,1),
-    # ('online',    env_online_riemann,1),
+    ('online',    env_online_riemann,1),
+    ('screening_4_classes_mi', env_screen_4class,1),
+    ('online',    env_online_riemann,1),
     # Adicione mais blocos conforme necessário
 ]
 
@@ -184,7 +185,11 @@ for block_name, block_path, save_entry in blocks:
                 print(f"{i}. {exp}")
             data_choice  = int(input("Digite o número do dado: ")) - 1
             data_train   = data_path + participant + '/' +  list_train[data_choice]
+            print("Rode o kernel ve visualização com o sess_filename a seguir")
+            print(data_train)
+            input('Após isso, aperte Enter...')
             run_online(openvibe_designer_path, block_path, filename_csv, current_data, logbook_filename, data_train)
+            # run_visualization(data_train)
 
 
         

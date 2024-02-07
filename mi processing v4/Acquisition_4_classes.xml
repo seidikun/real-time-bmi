@@ -48,7 +48,7 @@
 					<TypeIdentifier>(0x330306dd, 0x74a95f98)</TypeIdentifier>
 					<Name>Cue Image 1</Name>
 					<DefaultValue>${Path_Data}/plugins/simple-visualization/p300-magic-card/01.png</DefaultValue>
-					<Value>${Path_Project}mi processing v3/stimuli/left_hand.png</Value>
+					<Value>${Path_Project}mi processing v4/stimuli/left_hand.png</Value>
 					<Modifiability>false</Modifiability>
 				</Setting>
 				<Setting>
@@ -62,7 +62,7 @@
 					<TypeIdentifier>(0x330306dd, 0x74a95f98)</TypeIdentifier>
 					<Name>Cue Image 2</Name>
 					<DefaultValue>${Path_Data}/plugins/simple-visualization/p300-magic-card/02.png</DefaultValue>
-					<Value>C:/Program Files/openvibe-3.5.0-64bit/share/openvibe/plugins/simple-visualization/graz/feet.png</Value>
+					<Value>${Path_Project}mi processing v4/stimuli/left_arm.png</Value>
 					<Modifiability>false</Modifiability>
 				</Setting>
 				<Setting>
@@ -77,7 +77,7 @@
 					<TypeIdentifier>(0x330306dd, 0x74a95f98)</TypeIdentifier>
 					<Name>Cue Image 3</Name>
 					<DefaultValue>${Path_Data}/plugins/simple-visualization/p300-magic-card/03.png</DefaultValue>
-					<Value>${Path_Project}mi processing v3/stimuli/right_hand.png</Value>
+					<Value>${Path_Project}mi processing v4/stimuli/right_hand.png</Value>
 					<Modifiability>false</Modifiability>
 				</Setting>
 				<Setting>
@@ -92,7 +92,7 @@
 					<TypeIdentifier>(0x330306dd, 0x74a95f98)</TypeIdentifier>
 					<Name>Cue Image 4</Name>
 					<DefaultValue>${Path_Data}/plugins/simple-visualization/p300-magic-card/04.png</DefaultValue>
-					<Value>C:/Program Files/openvibe-3.5.0-64bit/share/openvibe/plugins/simple-visualization/graz/music.png</Value>
+					<Value>${Path_Project}mi processing v4/stimuli/right_arm.png</Value>
 					<Modifiability>false</Modifiability>
 				</Setting>
 				<Setting>

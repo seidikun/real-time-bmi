@@ -7,15 +7,9 @@ import pickle
 import configparser
 matplotlib.use('TkAgg')  # Defina o backend para TkAgg
 
-configParser    = configparser.RawConfigParser()
-configFilePath  = r'C:/Users/seidi/Documents/GitHub/real-time-bmi/mi processing v3/config.txt'
-configParser.read(configFilePath)
-Experiment      = configParser['PARAMETERS']['Experiment']
-type_classes    = configParser['PARAMETERS']['type_classes']
-Participant     = configParser['PARAMETERS']['Participant']
-Session_nb      = configParser['PARAMETERS']['Session_nb']
-Path_Save       = configParser['PARAMETERS']['Path_Save']
-sess_filename   = Path_Save + Participant + '/' + Experiment + '_' + type_classes + '_' + Participant + '_Sess' + Session_nb
+
+sess_filename   = 'D:/Seidi/CG111/RIEMANN_LDA_screening_4_classes_me_CG111_Sess0_Run1'
+type_classes    = '4classes'
 
 # Defina as configurações do broker
 broker_address  = "localhost" 

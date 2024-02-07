@@ -7,15 +7,7 @@ import paho.mqtt.client as mqtt
 import configparser
 import pickle
 
-configParser    = configparser.RawConfigParser()
-configFilePath  = r'C:/Users/seidi/Documents/GitHub/real-time-bmi/mi processing v3/config.txt'
-configParser.read(configFilePath)
-Experiment      = configParser['PARAMETERS']['Experiment']
-type_classes    = configParser['PARAMETERS']['type_classes']
-Participant     = configParser['PARAMETERS']['Participant']
-Session_nb      = configParser['PARAMETERS']['Session_nb']
-Path_Save       = configParser['PARAMETERS']['Path_Save']
-sess_filename   = Path_Save + Participant + '/' + Experiment + '_' + type_classes + '_' + Participant + '_Sess' + Session_nb
+sess_filename = 'D:/Seidi/CG111/RIEMANN_LDA_screening_4_classes_me_CG111_Sess0_Run1'
 
 # Defina as configurações do broker
 broker_address  = "localhost" 
@@ -40,8 +32,15 @@ def generate_tone(frequency, duration, sample_rate):
     return tone
 
 # Função para mapear valores
-def map_value(value, min_input, max_input, min_output, max_output):
-    return (value - min_input) / (max_input - min_input) * (max_output - min_output) + min_output
+def map_value(value, from_min, from_max, to_min, to_max):
+    # Mapeia o valor 'value' do intervalo [from_min, from_max] para o intervalo [to_min, to_max]
+    return (value - from_min) * (to_max - to_min) / (from_max - from_min) + to_min
+
+def calculate_frequency(position, y_min, y_max):
+    if position >= 0:
+        return map_value(position, y_min, 0, 100, 500)
+    else:
+        return map_value(position, 0, y_max, 500, 100)
 
 # Classe para controlar o áudio
 class AudioThread(threading.Thread):
@@ -55,14 +54,14 @@ class AudioThread(threading.Thread):
         self.fs                = 44100
         self.last_position     = np.array([0, 0, 0], dtype=np.float64)
         self.listener_position = np.array([self.center_x, self.center_y, 0], dtype=np.float64)
-        self.left_ear_offset   = np.array([self.center_x-3, self.center_y, 0], dtype=np.float64) 
-        self.right_ear_offset  = np.array([self.center_x+3, self.center_y, 0], dtype=np.float64)  
+        self.left_ear_offset   = np.array([self.center_x-2, self.center_y, 0], dtype=np.float64) 
+        self.right_ear_offset  = np.array([self.center_x+2, self.center_y, 0], dtype=np.float64)  
 
     def calculate_amplitude(self, position, ear_position):
         distance = np.linalg.norm(position - ear_position)
         # Ajuste para uma escala perceptualmente uniforme
         max_distance = np.sqrt(self.center_x**2 + self.center_y**2)
-        perceived_distance = (distance / max_distance) ** 0.2  # Exponente ajustável para afinar a percepção
+        perceived_distance = (distance / max_distance) ** 0.1  # Exponente ajustável para afinar a percepção
         return map_value(perceived_distance, 0, 1, 1, 0)  # Mapeia a percepção linearizada para amplitude
    
     def sound_worker(self):
@@ -75,7 +74,8 @@ class AudioThread(threading.Thread):
                 amplitude_left     = self.calculate_amplitude(position, left_ear_position)
                 amplitude_right    = self.calculate_amplitude(position, right_ear_position)
 
-                frequency = map_value(position[1], y_min, y_max, 50, 300)
+                frequency = calculate_frequency(position[1], y_min, y_max)
+               
                 tone = generate_tone(frequency, 0.12, self.fs)
                 print(frequency, amplitude_left, amplitude_right)
 

@@ -23,15 +23,8 @@ def on_connect(client, userdata, flags, rc):
     else:
         print("Failed to connect, return code %d\n", rc)
 
-configParser    = configparser.RawConfigParser()
-configFilePath  = r'C:/Users/Laboratorio/Documents/GitHub/real-time-bmi/mi processing v3/config.txt'
-configParser.read(configFilePath)
-Experiment      = configParser['PARAMETERS']['Experiment']
-type_classes    = configParser['PARAMETERS']['type_classes']
-Participant     = configParser['PARAMETERS']['Participant']
-Session_nb      = configParser['PARAMETERS']['Session_nb']
-Path_Save       = configParser['PARAMETERS']['Path_Save']
-sess_filename   = Path_Save + Participant + '/' + Experiment + '_' + type_classes + '_' + Participant + '_Sess' + Session_nb
+
+sess_filename = 'D:/Seidi/TEST/RIEMANN_LDA_screening_2_classes_mi_TEST_Sess0_Run1'
 
 
 # Parâmetros da elipse

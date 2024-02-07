@@ -133,7 +133,7 @@ audio_thread = AudioThread(shared_state)
 audio_thread.start()
 
 try:
-    brownian_motion_simulation_2d(shared_state, 3000, 0.3)
-    # circular_motion_simulation(shared_state, 3600, math.pi/180)  
+    # brownian_motion_simulation_2d(shared_state, 3000, 0.3)
+    circular_motion_simulation(shared_state, 3600, math.pi/180)  
 finally:
     audio_thread.stop()
