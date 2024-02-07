@@ -44,16 +44,8 @@ class MyOVBox(OVBox):
         # contador de processamentos
         self.nProc               = 0
         
-        configParser = configparser.RawConfigParser()
-        configFilePath  = r'C:/Users/seidi/Documents/GitHub/real-time-bmi/mi processing v3/config.txt'
-        configParser.read(configFilePath)
-
-        Experiment      = configParser['PARAMETERS']['Experiment']
-        Participant     = configParser['PARAMETERS']['Participant']
-        type_classes    = configParser['PARAMETERS']['type_classes']
-        Session_nb      = configParser['PARAMETERS']['Session_nb']
-        Path_Save       = configParser['PARAMETERS']['Path_Save']
-        sess_filename   = Path_Save + Participant + '/' + Experiment + '_' + type_classes +  '_' + Participant + '_Sess' + Session_nb
+        sess_filename  = self.setting['data_train']
+        print(sess_filename)
         class_filename  = sess_filename + '_classifier.pkl'
         c_mean_filename = sess_filename + '_best_c_mean.pkl'
         pca_filename    = sess_filename + '_pca.pkl'
@@ -64,13 +56,20 @@ class MyOVBox(OVBox):
             self.clf = pickle.load(f)
         with open(pca_filename,   'rb') as file:
             self.pca = pickle.load(file)
+        pass
+
+        
 
     def initialize(self):
         # definido o signalBufferIN pra não dar pau nas primeiras iterações de self.process()
         self.signalBufferIN      = np.zeros((1, 1))
         # definido o signalsignalHeaderIN pra não dar pau nas primeiras iterações de self.process()
         self.signalHeaderIN      = OVSignalHeader(0., 0., [1, 1], [1, 1], 1)
-        pass
+        
+        configParser = configparser.RawConfigParser()
+        configFilePath  = r'C:/Users/seidi/Documents/GitHub/real-time-bmi/mi processing v3/config.txt'
+        configParser.read(configFilePath)
+        
 
     def getInfosIN(self):
         self.samplingIN          = self.signalHeaderIN.samplingRate

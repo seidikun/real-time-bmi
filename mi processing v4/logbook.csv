@@ -1,0 +1,20 @@
+Experiment,Participant,Type_session,Session,Run,Filename,Timestamp,Computer
+RIEMANN_LDA,TEST,baseline_open_eyes,1518,1,RIEMANN_LDA_baseline_open_eyes_TEST_Sess1518_Run1.csv,2024-02-06 15:44:09,SEIDI
+RIEMANN_LDA,TEST,baseline_open_eyes,1518,2,RIEMANN_LDA_baseline_open_eyes_TEST_Sess1518_Run2.csv,2024-02-06 15:44:43,SEIDI
+RIEMANN_LDA,TEST,baseline_closed_eyes,1518,1,RIEMANN_LDA_baseline_closed_eyes_TEST_Sess1518_Run1.csv,2024-02-06 15:46:04,SEIDI
+RIEMANN_LDA,TEST,baseline_closed_eyes,1518,2,RIEMANN_LDA_baseline_closed_eyes_TEST_Sess1518_Run2.csv,2024-02-06 15:47:04,SEIDI
+RIEMANN_LDA,TEST,screening_2_classes_mi,1518,1,RIEMANN_LDA_screening_2_classes_mi_TEST_Sess1518_Run1.csv,2024-02-06 15:47:56,SEIDI
+RIEMANN_LDA,TEST,screening_4_classes_me,1518,1,RIEMANN_LDA_screening_4_classes_me_TEST_Sess1518_Run1.csv,2024-02-06 15:48:22,SEIDI
+RIEMANN_LDA,TEST,screening_4_classes_mi,1518,1,RIEMANN_LDA_screening_4_classes_mi_TEST_Sess1518_Run1.csv,2024-02-06 15:48:42,SEIDI
+RIEMANN_LDA,TEST,screening_2_classes_mi,000,1,RIEMANN_LDA_screening_2_classes_mi_TEST_Sess000_Run1,2024-02-06 16:38:56,SEIDI
+RIEMANN_LDA,TEST,screening_2_classes_mi,0000,1,RIEMANN_LDA_screening_2_classes_mi_TEST_Sess0000_Run1,2024-02-06 16:39:21,SEIDI
+RIEMANN_LDA,TEST,screening_2_classes_mi,0000,1,RIEMANN_LDA_screening_2_classes_mi_TEST_Sess0000_Run1,2024-02-06 16:40:25,SEIDI
+RIEMANN_LDA,TEST,screening_2_classes_mi,0000,1,RIEMANN_LDA_screening_2_classes_mi_TEST_Sess0000_Run1,2024-02-06 16:40:49,SEIDI
+RIEMANN_LDA,TEST,screening_2_classes_mi,0000,1,RIEMANN_LDA_screening_2_classes_mi_TEST_Sess0000_Run1,2024-02-06 16:49:36,SEIDI
+RIEMANN_LDA,TEST,screening_2_classes_mi,00000,1,RIEMANN_LDA_screening_2_classes_mi_TEST_Sess00000_Run1,2024-02-06 16:50:45,SEIDI
+RIEMANN_LDA,TEST,screening_2_classes_mi,0000,1,RIEMANN_LDA_screening_2_classes_mi_TEST_Sess0000_Run1,2024-02-06 17:03:12,SEIDI
+RIEMANN_LDA,TEST,screening_2_classes_mi,0000,2,RIEMANN_LDA_screening_2_classes_mi_TEST_Sess0000_Run2,2024-02-06 17:03:47,SEIDI
+RIEMANN_LDA,TEST,screening_2_classes_mi,0000,1,RIEMANN_LDA_screening_2_classes_mi_TEST_Sess0000_Run1,2024-02-06 19:24:53,SEIDI
+RIEMANN_LDA,TEST,screening_2_classes_mi,0000,1,RIEMANN_LDA_screening_2_classes_mi_TEST_Sess0000_Run1,2024-02-06 19:55:20,SEIDI
+RIEMANN_LDA,TEST,screening_2_classes_mi,000000,1,RIEMANN_LDA_screening_2_classes_mi_TEST_Sess000000_Run1,2024-02-06 19:56:30,SEIDI
+RIEMANN_LDA,TEST,online,000000,1,RIEMANN_LDA_online_TEST_Sess000000_Run1,2024-02-06 19:56:55,SEIDI
