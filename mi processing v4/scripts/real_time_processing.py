@@ -53,16 +53,17 @@ class MyOVBox(OVBox):
         self.signalHeaderIN      = OVSignalHeader(0., 0., [1, 1], [1, 1], 1)
         
         sess_filename   = self.setting['data_train']
+        print(sess_filename)
         class_filename  = sess_filename + '_classifier.pkl'
         c_mean_filename = sess_filename + '_best_c_mean.pkl'
-        pca_filename    = sess_filename + '_pca.pkl'
+        dim_red_filename    = sess_filename + '_dim_red.pkl'
         
         with open(c_mean_filename, 'rb') as f: 
             self.best_c_mean = pickle.load(f)
         with open(class_filename, 'rb') as f: 
             self.clf = pickle.load(f)
-        with open(pca_filename,   'rb') as file:
-            self.pca = pickle.load(file)
+        with open(dim_red_filename,   'rb') as file:
+            self.dim_red = pickle.load(file)
         pass
 
 
@@ -122,10 +123,10 @@ class MyOVBox(OVBox):
         # Formata buffer de saída e envia
         start      = self.timeBuffer[0]
         end        = self.timeBuffer[-1] + 1./self.samplingOUT
-        X_pca      = self.pca.transform(tan_space_cov)
-        prediction = self.clf.predict(X_pca)
+        X_dim_red  = self.dim_red.transform(tan_space_cov)
+        prediction = self.clf.predict(X_dim_red)
         
-        out = [X_pca[0][0], X_pca[0][1], prediction[0]]
+        out = [X_dim_red[0][0], X_dim_red[0][1], prediction[0]]
         print(out)
         
         self.output[0].append(OVSignalBuffer(start, end, out))

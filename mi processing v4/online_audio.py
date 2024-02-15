@@ -7,7 +7,7 @@ import paho.mqtt.client as mqtt
 import configparser
 import pickle
 
-sess_filename = 'D:/Seidi/CG111/RIEMANN_LDA_screening_4_classes_me_CG111_Sess0_Run1'
+sess_filename = 'C:/Users/seidi/Desktop/Data/TEST/RIEMANN_LDA_screening_2_classes_mi_TEST_Sess0_Run1'
 
 # Defina as configurações do broker
 broker_address  = "localhost" 
@@ -15,7 +15,7 @@ port            = 1883
 topic           = "PCA_values"
 
 
-with open(sess_filename + '_range_pca.pkl', 'rb') as file:
+with open(sess_filename + '_range_red_dim.pkl', 'rb') as file:
     x_min, x_max, y_min, y_max = pickle.load(file)
 
 # Função para gerar um tom

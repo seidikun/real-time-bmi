@@ -16,7 +16,7 @@ import random
 def data_preparation(data_eeg, a, b, columns, dict_inds, dict_labels, Fs, epoch_size, overlap_step):
   # Define parâmetros
   max_trial_t  = 3.75 # tamanho máximo de uma janela de tentativa
-  trange        = np.arange(int(Fs*0.5),int(Fs*(0.5 + epoch_size)),4)
+  trange        = np.arange(int(Fs*0.5),int(Fs*(0.5 + epoch_size)))
 
   # Loop pelas janelas
   first_pass = True
@@ -141,15 +141,15 @@ def process_data(sess_filename, type_classes):
         dict_labels = {
             'left_hand':  0,
             'right_hand': 1,
-            'feet':       2,
-            'rest':       3
+            'left_arm':   2,
+            'right_arm':  3
         }
         
         dict_inds = {
             'left_hand':  event_id.index[event_id == 769].tolist(),
             'right_hand': event_id.index[event_id == 770].tolist(),
-            'feet':       event_id.index[event_id == 1089].tolist(),
-            'rest':       event_id.index[event_id == 1090].tolist()
+            'left_arm':   event_id.index[event_id == 1089].tolist(),
+            'right_arm':  event_id.index[event_id == 1090].tolist()
         }
         nClasses = 4
     
@@ -241,7 +241,7 @@ def process_data(sess_filename, type_classes):
     with open(sess_filename + '_best_c_mean.pkl', 'wb') as f: 
         pickle.dump(best_c_mean, f)
         
-    with open(sess_filename + '_pca.pkl', 'wb') as file:
+    with open(sess_filename + '_dim_red.pkl', 'wb') as file:
         pickle.dump(pca, file)
         
 if __name__ == "__main__":
