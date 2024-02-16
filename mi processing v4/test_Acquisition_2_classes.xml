@@ -501,7 +501,7 @@
 					<TypeIdentifier>(0x330306dd, 0x74a95f98)</TypeIdentifier>
 					<Name>Filename</Name>
 					<DefaultValue></DefaultValue>
-					<Value>C:/Users/seidi/Documents/GitHub/real-time-bmi/mi processing v4/test_data/motor_mi_EG102_online_6d.csv</Value>
+					<Value>C:/Users/seidi/Desktop/Data/RF112/RIEMANN_LDA_screening_2_classes_mi_RF112_Sess1_Run1.csv</Value>
 					<Modifiability>false</Modifiability>
 				</Setting>
 			</Settings>
@@ -606,7 +606,7 @@
 					<TypeIdentifier>(0x007deef9, 0x2f3e95c6)</TypeIdentifier>
 					<Name>Number of Trials for Each Class</Name>
 					<DefaultValue>20</DefaultValue>
-					<Value>10</Value>
+					<Value>20</Value>
 					<Modifiability>false</Modifiability>
 				</Setting>
 				<Setting>

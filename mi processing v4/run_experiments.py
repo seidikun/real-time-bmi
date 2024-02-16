@@ -19,20 +19,20 @@ env_monitoring     = project_path + '/Monitoring.xml'
 env_free           = project_path + '/Acquisition_Free.xml'
 env_screen_2class  = project_path + '/test_Acquisition_2_classes.xml'
 env_screen_4class  = project_path + '/test_Acquisition_4_classes.xml'
-env_online_2class  = project_path + '/test_Online_2_classes.xml'
-env_online_4class  = project_path + '/test_Online_4_classes.xml'
+env_online_2class  = project_path + '/test_Online.xml'
+env_online_4class  = project_path + '/test_Online.xml'
 
 # Definir a sequência de blocos do experimento
 blocks = [
     # ('monitoring',             env_monitoring,   0),
     # ('baseline_open_eyes',     env_free,1),
     # ('baseline_closed_eyes'   ,env_free,1),
-    ('screening_2_classes_mi', env_screen_2class,1),
-    ('online'   ,              env_online_2class,1),
+    # ('screening_2_classes_mi', env_screen_2class,1),
+    ('online_2_classes_mi'   ,              env_online_2class,1),
     # ('screening_4_classes_me', env_screen_4class,1),
-    # ('online',                 env_online_4class,1),
+    # ('online_4_classes_me',                 env_online_4class,1),
     # ('screening_4_classes_mi', env_screen_4class,1),
-    # ('online',                 env_online_4class,1),
+    # ('online_4_classes_mi',    env_online_4class,1),
     # Adicione mais blocos conforme necessário
 ]
 
@@ -86,7 +86,6 @@ def run_online(openvibe_designer_path, block_path, filename_csv, current_data, l
         command = f'"{openvibe_designer_path}" --play "{block_path}" --define Filename {filename_csv} --define data_train {data_train}'
         subprocess.Popen(command, shell=True)
         input("Ao finalizar o bloco, pressione Enter para continuar...")
-        
 
 def select_data_to_train(data_path, experiment, participant, session):
     # Encontra os localizadores da sessão (arquivos que contenham 'screening' e 'Sess' no nome)
@@ -163,7 +162,7 @@ for block_name, block_path, save_entry in blocks:
             run_basic(openvibe_designer_path, block_path, filename_csv, current_data, logbook_filename)
             print('Treinando o modelo...')
             train_lda.process_data(data_path + participant + f"/{filename}", '4classes')
-        elif block_name == 'online':
+        elif block_name == 'online_2_classes_mi' or block_name == 'online_4_classes_mi' or block_name == 'online_4_classes_me':
             list_train = select_data_to_train(data_path, experiment, participant, session)
             print('Escolha o dado que você quer usar para o bloco online')
             for i, exp in enumerate(list_train, 1):

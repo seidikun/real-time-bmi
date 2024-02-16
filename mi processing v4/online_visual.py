@@ -8,8 +8,16 @@ import configparser
 matplotlib.use('TkAgg')  # Defina o backend para TkAgg
 
 
-sess_filename   = 'C:/Users/seidi/Desktop/Data/TEST/RIEMANN_LDA_screening_2_classes_mi_TEST_Sess00_Run1'
+sess_filename   = 'C:/Users/seidi/Desktop/Data/TEST/RIEMANN_LDA_screening_2_classes_mi_TEST_Sess0000_Run1'
 type_classes    = '2classes'
+list_classes = ['baseline', 'left_hand', 'right_hand']
+dict_classes = {
+    'baseline':   (0,0),
+    'left_hand':  (1,0),
+    'right_hand': (2,0),
+    'left_elbow': (3,0),
+    'right_elbow':(4, 0)
+}    
 
 # Defina as configurações do broker
 broker_address  = "localhost" 
@@ -17,10 +25,11 @@ port            = 1883
 topic           = "PCA_values"
 
 dict_labels = {
-    0: 'Mão Esquerda',
-    1: 'Mão Direita',
-    2: 'Cotovelo Esquerdo',
-    3: 'Cotovelo Direito'
+    0: 'Baseline', 
+    1: 'Mão Esquerda',
+    2: 'Mão Direita',
+    3: 'Cotovelo Esquerdo',
+    4: 'Cotovelo Direito'
 }
 
 # Função de callback chamada quando a conexão com o broker é estabelecida
@@ -87,10 +96,11 @@ if type_classes != 'free':
         
     xx, yy       = np.meshgrid(np.linspace(x_min, x_max, 200), np.linspace(y_min, y_max, 200))
 
-    colors = ['Blues', 'Reds', 'Greens', 'Purples']
-    for iclass in range(nClasses):
-        kde_name   = 'kde' + str(iclass)
-        zname      = 'z' + str(iclass)
+    colors = ['Greys', 'Blues', 'Reds', 'Oranges', 'Purples']
+    for label_class in list_classes:
+        kde_name   = 'kde_' + label_class 
+        zname      = 'z_' + label_class
+        iclass     = dict_classes[label_class][0]
         z          = dict_kde[kde_name].evaluate(np.vstack([xx.ravel(), yy.ravel()])).reshape(xx.shape)
         plt.contourf(xx, yy, z, alpha=0.5, levels=np.linspace(z.min(), z.max(), 10), cmap=colors[iclass])
     

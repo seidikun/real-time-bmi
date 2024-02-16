@@ -87,3 +87,13 @@ RIEMANN_LDA,TEST,screening_2_classes_mi,00,1,RIEMANN_LDA_screening_2_classes_mi_
 RIEMANN_LDA,TEST,online,00,1,RIEMANN_LDA_online_TEST_Sess00_Run1,2024-02-15 07:59:22,SEIDI
 RIEMANN_LDA,TEST,online,00,1,RIEMANN_LDA_online_TEST_Sess00_Run1,2024-02-15 08:01:37,SEIDI
 RIEMANN_LDA,TEST,screening_2_classes_mi,00,1,RIEMANN_LDA_screening_2_classes_mi_TEST_Sess00_Run1,2024-02-15 08:05:11,SEIDI
+RIEMANN_LDA,TEST,screening_4_classes_mi,0000,1,RIEMANN_LDA_screening_4_classes_mi_TEST_Sess0000_Run1,2024-02-15 16:59:33,SEIDI
+RIEMANN_LDA,TEST,online_4_classes_mi,0000,1,RIEMANN_LDA_online_4_classes_mi_TEST_Sess0000_Run1,2024-02-15 17:16:56,SEIDI
+RIEMANN_LDA,TEST,online_4_classes_mi,0000,1,RIEMANN_LDA_online_4_classes_mi_TEST_Sess0000_Run1,2024-02-15 17:20:51,SEIDI
+RIEMANN_LDA,TEST,online_4_classes_mi,0000,1,RIEMANN_LDA_online_4_classes_mi_TEST_Sess0000_Run1,2024-02-15 17:25:22,SEIDI
+RIEMANN_LDA,TEST,online_4_classes_mi,0000,1,RIEMANN_LDA_online_4_classes_mi_TEST_Sess0000_Run1,2024-02-15 17:42:27,SEIDI
+RIEMANN_LDA,TEST,screening_4_classes_me,0000,1,RIEMANN_LDA_screening_4_classes_me_TEST_Sess0000_Run1,2024-02-15 17:53:17,SEIDI
+RIEMANN_LDA,TEST,screening_2_classes_mi,0000,1,RIEMANN_LDA_screening_2_classes_mi_TEST_Sess0000_Run1,2024-02-15 18:05:47,SEIDI
+RIEMANN_LDA,TEST,screening_2_classes_mi,0000,1,RIEMANN_LDA_screening_2_classes_mi_TEST_Sess0000_Run1,2024-02-15 18:06:09,SEIDI
+RIEMANN_LDA,TEST,online_2_classes_mi,0000,1,RIEMANN_LDA_online_2_classes_mi_TEST_Sess0000_Run1,2024-02-15 18:12:22,SEIDI
+RIEMANN_LDA,TEST,online_2_classes_mi,0000,1,RIEMANN_LDA_online_2_classes_mi_TEST_Sess0000_Run1,2024-02-15 18:14:11,SEIDI
